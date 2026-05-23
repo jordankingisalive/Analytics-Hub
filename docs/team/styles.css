@@ -1,0 +1,256 @@
+/* ============================================================
+   Team page · subpage styles
+   Piggybacks on ../styles.css for palette + header/footer.
+   ============================================================ */
+
+.team-page { padding-bottom: 4rem; }
+
+/* ---------- Hero ---------- */
+.team-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 3rem;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+.team-hero .hero-bg {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: .35;
+}
+.team-hero .orb {
+  position: absolute;
+  border-radius: 50%;
+  width: 320px; height: 320px;
+}
+.team-hero .orb-1 { background: #0078d4; top: -120px; left: -80px; }
+.team-hero .orb-2 { background: #8661c5; top: 40%; right: -120px; }
+.team-hero .orb-3 { background: #00B294; bottom: -160px; left: 30%; }
+
+.team-hero .wrap { position: relative; }
+.team-hero .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 .75rem;
+}
+.team-hero h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  margin: 0 0 1.5rem;
+  letter-spacing: -.02em;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.team-hero .lede {
+  max-width: 780px;
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+.team-hero .lede strong { color: var(--text); }
+.team-hero .meta-line {
+  max-width: 780px;
+  color: var(--text-muted);
+  font-size: .95rem;
+  font-style: italic;
+  margin: 1.5rem 0 0;
+}
+
+/* ---------- Principles ---------- */
+.principles-band { background: var(--bg); }
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.principle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.principle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--border-strong);
+}
+.principle-icon {
+  font-size: 1.75rem;
+  margin-bottom: .75rem;
+}
+.principle h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.05rem;
+  letter-spacing: -.01em;
+}
+.principle p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+/* ---------- Team grid ---------- */
+.team-grid-band { background: var(--bg-alt); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .35rem;
+  padding: 1.75rem 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.member-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: .02em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--c1, #0078d4), var(--c2, #8661c5));
+  margin-bottom: .75rem;
+  box-shadow: var(--shadow-sm);
+}
+.member-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+.member-role {
+  font-size: .85rem;
+  color: var(--text-soft);
+  line-height: 1.4;
+  min-height: 2.6em;
+}
+.member-link {
+  margin-top: .5rem;
+  font-size: .8rem;
+  color: var(--accent);
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.member-card:hover .member-link { opacity: 1; }
+
+/* ---------- Spotlight ---------- */
+.spotlight-band { background: var(--bg); }
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.spotlight-card {
+  padding: 1.75rem 1.5rem;
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+}
+.spotlight-eyebrow {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  margin-bottom: .75rem;
+}
+.spotlight-card h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.1rem;
+  letter-spacing: -.01em;
+}
+.spotlight-card p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: .95rem;
+  line-height: 1.55;
+}
+.spotlight-placeholder { opacity: .85; }
+
+/* ---------- Engage ---------- */
+.engage-band { background: var(--bg-alt); border-top: 1px solid var(--border); }
+.engage-wrap {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .engage-wrap { grid-template-columns: 1fr; }
+}
+.engage-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1rem;
+}
+.engage-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+.engage-card h3 {
+  margin: 0 0 .75rem;
+  font-size: 1.05rem;
+  letter-spacing: -.01em;
+}
+.engage-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.engage-card li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--text-soft);
+  font-size: .95rem;
+  line-height: 1.5;
+}
+.engage-card li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+.engage-card strong { color: var(--text); }
