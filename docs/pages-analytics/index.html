@@ -82,14 +82,12 @@
               <th data-sort="forks" class="num">🍴</th>
               <th data-sort="watchers" class="num">👁</th>
               <th data-sort="views" class="num">Views (<span data-window-label>14d</span>)</th>
-              <th data-sort="uniqueViews" class="num" title="Sum of per-day unique visitors in the selected window. Overcounts if the same visitor returns on different days — GitHub doesn't expose a true window-wide unique count.">Unique·days</th>
               <th data-sort="clones" class="num">Clones (<span data-window-label>14d</span>)</th>
-              <th data-sort="uniqueClones" class="num" title="Sum of per-day unique cloners. Overcounts repeat cloners across days.">Unique·days</th>
               <th data-sort="trend" class="num">Trend</th>
             </tr>
           </thead>
           <tbody id="repo-tbody">
-            <tr><td colspan="9" class="empty">Loading repository data…</td></tr>
+            <tr><td colspan="7" class="empty">Loading repository data…</td></tr>
           </tbody>
         </table>
       </div>
@@ -123,7 +121,6 @@
         <ul>
           <li><strong>Source:</strong> a GitHub Action (<code>.github/workflows/traffic-snapshot.yml</code>) runs nightly at 03:00 UTC.</li>
           <li><strong>Repos:</strong> queries <code>/repos/{owner}/{repo}/traffic/{views,clones,popular/referrers,popular/paths}</code> for each tool. Daily view/clone buckets (the API returns up to 14 days per call, with overlap between runs) are merged into a year-to-date map keyed by date. Requires a PAT with <code>repo</code> scope, SSO-authorized for the microsoft org. Repos the token can't reach fall back to public meta only.</li>
-          <li><strong>Uniques caveat:</strong> GitHub returns per-day unique counts. Summing them across days overcounts repeat visitors (a person who returns three different days = 3 unique-days, not 1 unique person). True year-long uniques aren't exposed by the API.</li>
           <li><strong>Sites:</strong> calls the Microsoft Clarity Data Export API per project (one token per project, capped at 10 calls/day each).</li>
           <li><strong>Storage:</strong> appends to <code>docs/data/traffic-history.json</code>, committed back to <code>main</code> by the bot. Idempotent — re-running on the same day overwrites that day's data rather than appending duplicates.</li>
           <li><strong>Why it exists:</strong> GitHub's traffic API only retains 14 days. Clarity sees Pages traffic that GitHub can't. This page is the long-memory layer.</li>

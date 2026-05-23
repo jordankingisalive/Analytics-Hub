@@ -176,7 +176,7 @@ function renderTable() {
   });
 
   if (!sorted.length) {
-    tbody.innerHTML = `<tr><td colspan="9" class="empty">No repos in history yet.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" class="empty">No repos in history yet.</td></tr>`;
     return;
   }
 
@@ -198,9 +198,7 @@ function renderTable() {
         <td class="num">${fmt(r.forks)}</td>
         <td class="num">${fmt(r.watchers)}</td>
         <td class="num">${fmt(r.views)}</td>
-        <td class="num">${fmt(r.uniqueViews)}</td>
         <td class="num">${fmt(r.clones)}</td>
-        <td class="num">${fmt(r.uniqueClones)}</td>
         <td class="num">${sparkline(r.trend)}</td>
       </tr>
     `;
@@ -228,7 +226,7 @@ function renderTable() {
       tbody.querySelectorAll(".detail-row").forEach((d) => d.remove());
       const detail = document.createElement("tr");
       detail.className = "detail-row";
-      detail.innerHTML = `<td colspan="9">${renderRepoDetail(r)}</td>`;
+      detail.innerHTML = `<td colspan="7">${renderRepoDetail(r)}</td>`;
       row.parentNode.insertBefore(detail, row.nextSibling);
     });
   });
@@ -280,10 +278,10 @@ function renderRepoCards(rows) {
         <span>👁 <strong>${fmt(r.watchers)}</strong></span>
       </div>
       <div class="meta-row">
-        <span>Views (${short}): <strong>${fmt(r.views)}</strong> · ${fmt(r.uniqueViews)} unique-days</span>
+        <span>Views (${short}): <strong>${fmt(r.views)}</strong></span>
       </div>
       <div class="meta-row">
-        <span>Clones (${short}): <strong>${fmt(r.clones)}</strong> · ${fmt(r.uniqueClones)} unique-days</span>
+        <span>Clones (${short}): <strong>${fmt(r.clones)}</strong></span>
       </div>
       <div class="sparkline-wrap">
         <div class="sparkline-label">Daily views · ${r.daysTracked || 0} days in window</div>
