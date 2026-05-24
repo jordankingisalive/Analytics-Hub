@@ -379,15 +379,13 @@
 
   // ---------------------------------------------------------- boot
   document.addEventListener("DOMContentLoaded", () => {
-    const palette = buildPalette();
-    addPaletteTrigger(palette.open);
+    // Palette modal is built and available via Cmd/Ctrl+K, but no visible
+    // trigger pill, star pill, ribbon, or recently-viewed rail is rendered.
+    buildPalette();
     addHamburger();
-    addStarCta();
     tooltipThemeToggle();
     watchSystemTheme();
     tagExternalLinks();
     trackCurrentPage();
-    renderRecentlyViewed(); // no-op if #ah-recent isn't on the page
-    renderRibbon();         // no-op if #ah-ribbon isn't on the page
   });
 })();
