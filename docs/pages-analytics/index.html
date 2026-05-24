@@ -174,16 +174,13 @@
 
 <script src="app.js"></script>
 
-<!-- C3: one-time pulse on a clickable row chevron so visitors know rows expand.
-     Polls briefly because app.js auto-expands the first linked-site row on init,
-     so we want to pulse a DIFFERENT collapsed row. Fires at most once per user. -->
+<!-- Row chevron pulse, fires once per visitor. -->
 <script>
   window.addEventListener("load", () => {
     let tries = 0;
     const tick = () => {
       tries++;
       if (!window.ahNudge) { if (tries < 40) setTimeout(tick, 100); return; }
-      // Prefer a non-open row so the pulse points at something users can click.
       const target = document.querySelector(".repo-row:not(.is-open) .row-chevron")
                   || document.querySelector(".repo-row .row-chevron");
       if (target) {

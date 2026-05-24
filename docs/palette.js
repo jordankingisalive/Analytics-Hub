@@ -208,8 +208,7 @@
     let list = [];
     try { list = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]"); } catch (e) {}
     if (!list.length) {
-      // UX clarity: explicit empty state so first-time visitors understand
-      // the rail will populate as they explore (instead of just seeing nothing).
+      // Empty state rendered when no recent pages are stored.
       slot.hidden = false;
       slot.classList.add("ah-recent--empty");
       slot.innerHTML = `
@@ -242,9 +241,8 @@
       const arr = await r.json();
       const c = arr[0];
       const rawMessage = (c.commit.message || "").split("\n")[0];
-      // Strip conventional-commit prefix ("feat(scope): ...") for the display
-      // message so non-dev visitors don't see jargon. The link still goes
-      // to the real commit for power users.
+      // Strip conventional-commit prefix from the display message.
+      // The link still points at the full commit.
       const message = rawMessage.replace(/^[a-z]+(\([^)]*\))?!?:\s*/i, "");
       const payload = {
         cachedAt: Date.now(),
@@ -336,11 +334,10 @@
     }
   }
 
-  // ---------------------------------------------------------- C1: external-link arrow tagger
-  // Marks every external (target=_blank) anchor with .ah-ext so palette.css
-  // appends a ↗ glyph via ::after. Skips anchors that already include an
-  // arrow glyph in their text (no duplicates), decorative chrome (nav-cta,
-  // star pill, palette trigger, brand logo), and image-only anchors.
+  // ---------------------------------------------------------- External-link arrow tagger
+  // Adds .ah-ext to outbound anchors so palette.css can append a ↗ glyph.
+  // Skips anchors already containing an arrow glyph, decorative chrome,
+  // and image-only anchors.
   function tagExternalLinks() {
     const ARROW_RE = /[\u2197\u2192\u21AA\u2934\u21D7\u279C]/; // ↗ → ↪ ⤴ ⇗ ➜
     const SKIP_CLASS = /\b(nav-cta|ah-star|ah-palette-trigger|github-button|brand|ah-skip|footer-brand|ah-recent__chip|ah-ribbon__close)\b/;

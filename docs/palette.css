@@ -4,9 +4,8 @@
    Inherits tokens from styles.css (--bg, --text, --accent, etc.)
    ============================================================ */
 
-/* ----------------------------------------------------- C1: sitewide external-link arrow */
-/* Tagged via palette.js (.ah-ext) so we can skip duplicates and decorative
-   chrome cleanly. Adds ↗ via ::after so it never touches the markup. */
+/* ----------------------------------------------------- External-link arrow */
+/* Adds ↗ via ::after to anchors tagged with .ah-ext by palette.js. */
 .ah-ext::after {
   content: " \2197"; /* ↗ */
   display: inline-block;
@@ -19,9 +18,8 @@
 }
 a.ah-ext:hover::after { color: var(--accent); }
 
-/* ----------------------------------------------------- C3: nudges (pulse + toast) */
-/* Muted accent-colored halo that draws the eye to a target ONCE per user.
-   Fires from nudges.js; class is stripped on click or timeout. */
+/* ----------------------------------------------------- Nudges (pulse + toast) */
+/* Halo applied to a target element. Removed on click or timeout. */
 @keyframes ah-nudge-pulse {
   0%   { box-shadow: 0 0 0 0   color-mix(in srgb, var(--accent) 55%, transparent); }
   70%  { box-shadow: 0 0 0 14px color-mix(in srgb, var(--accent)  0%, transparent); }
@@ -36,7 +34,7 @@ a.ah-ext:hover::after { color: var(--accent); }
 }
 .ah-nudge-pulse--static { animation: none; }
 
-/* Toast (corner chip variant) — used by the data-sources page */
+/* Toast (corner chip variant) */
 .ah-nudge-toast {
   position: fixed;
   z-index: 90;
@@ -65,7 +63,7 @@ a.ah-ext:hover::after { color: var(--accent); }
 }
 .ah-nudge-toast__close:hover { color: var(--text); background: var(--bg-alt); }
 
-/* C3: Recently Viewed empty-state (first visit on home) */
+/* Recently Viewed empty state */
 .ah-recent--empty {
   background: color-mix(in srgb, var(--accent) 6%, transparent);
   border: 1px dashed color-mix(in srgb, var(--accent) 35%, var(--border));
