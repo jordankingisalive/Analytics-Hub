@@ -132,16 +132,23 @@ def fetch_traffic(repo: str) -> dict:
 
 
 def fetch_clarity(token: str) -> dict | None:
-    """Single Clarity Data Export call: last 1 day, no dimensions = totals.
+    """Single Clarity Data Export call: last 3 days (max allowed), no
+    dimensions = totals.
 
     The token is project-scoped — Clarity returns data for whichever
     project generated it. No project ID is sent on the request.
+
+    numOfDays=3 is the maximum supported by the free Clarity Data Export
+    API and matches the default 3-day rolling window shown in the Clarity
+    dashboard UI. Each daily snapshot therefore covers the trailing 3
+    days; consumers should treat the latest snapshot as a 3-day rolling
+    summary, not a single-day total.
     """
     if not token:
         return None
     url = (
         "https://www.clarity.ms/export-data/api/v1/project-live-insights"
-        "?numOfDays=1"
+        "?numOfDays=3"
     )
     headers = {
         "Authorization": f"Bearer {token}",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-24T04:31:28.664847Z",
+  "lastUpdated": "2026-05-24T13:21:00Z",
   "repos": {
     "microsoft/Analytics-Hub": {
       "meta": {
@@ -3424,6 +3424,221 @@
               {
                 "url": "https://jordankingisalive.github.io/CopilotROICalculator/",
                 "visitsCount": "2"
+              }
+            ]
+          }
+        ]
+      },
+      "baseline": {
+        "syncedAt": "2026-05-24T13:21:00Z",
+        "windowDays": 14,
+        "source": "Clarity Dashboard manual PDF export",
+        "metrics": [
+          {
+            "metricName": "Traffic",
+            "information": [
+              {
+                "totalSessionCount": "216",
+                "totalBotSessionCount": "7",
+                "distinctUserCount": "216",
+                "pagesPerSessionPercentage": 1.0
+              }
+            ]
+          },
+          {
+            "metricName": "EngagementTime",
+            "information": [
+              {
+                "totalTime": "240",
+                "activeTime": "132"
+              }
+            ]
+          },
+          {
+            "metricName": "ScrollDepth",
+            "information": [
+              {
+                "averageScrollDepth": 61.88
+              }
+            ]
+          },
+          {
+            "metricName": "DeadClickCount",
+            "information": [
+              {
+                "sessionsCount": "216",
+                "sessionsWithMetricPercentage": 12.96,
+                "sessionsWithoutMetricPercentage": 87.04,
+                "pagesViews": "28",
+                "subTotal": "28"
+              }
+            ]
+          },
+          {
+            "metricName": "RageClickCount",
+            "information": [
+              {
+                "sessionsCount": "216",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "ExcessiveScroll",
+            "information": [
+              {
+                "sessionsCount": "216",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "QuickbackClick",
+            "information": [
+              {
+                "sessionsCount": "216",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "ScriptErrorCount",
+            "information": [
+              {
+                "sessionsCount": "216",
+                "sessionsWithMetricPercentage": 57.41,
+                "sessionsWithoutMetricPercentage": 42.59,
+                "pagesViews": "0",
+                "subTotal": "387"
+              }
+            ]
+          },
+          {
+            "metricName": "Browser",
+            "information": [
+              {
+                "name": "Edge",
+                "sessionsCount": "161"
+              },
+              {
+                "name": "Chrome",
+                "sessionsCount": "54"
+              },
+              {
+                "name": "Other",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "Country",
+            "information": [
+              {
+                "name": "United States",
+                "sessionsCount": "*"
+              }
+            ]
+          },
+          {
+            "metricName": "PageTitle",
+            "information": [
+              {
+                "name": "M365 Copilot ROI Calculator (landing /)",
+                "sessionsCount": "85"
+              },
+              {
+                "name": "M365 Copilot ROI Calculator (index.html)",
+                "sessionsCount": "43"
+              },
+              {
+                "name": "M365 Copilot ROI Calculator (roi-calculator.html)",
+                "sessionsCount": "42"
+              },
+              {
+                "name": "Start Here - M365 Copilot ROI Calculator",
+                "sessionsCount": "19"
+              },
+              {
+                "name": "Changelog - M365 Copilot ROI Calculator",
+                "sessionsCount": "18"
+              }
+            ]
+          },
+          {
+            "metricName": "ReferrerUrl",
+            "information": [
+              {
+                "name": "https://jordankingisalive.github.io/",
+                "sessionsCount": "102"
+              },
+              {
+                "name": "https://statics.teams.cdn.office.net/",
+                "sessionsCount": "11"
+              },
+              {
+                "name": "https://teams.public.onecdn.static.microsoft/",
+                "sessionsCount": "5"
+              },
+              {
+                "name": "https://github.com/",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "SmartEvents",
+            "information": [
+              {
+                "name": "demo_report_loaded",
+                "sessionsCount": "28"
+              },
+              {
+                "name": "Outbound click",
+                "sessionsCount": "24"
+              },
+              {
+                "name": "download_executive_deck",
+                "sessionsCount": "15"
+              },
+              {
+                "name": "Upload",
+                "sessionsCount": "6"
+              },
+              {
+                "name": "download_local_package",
+                "sessionsCount": "6"
+              },
+              {
+                "name": "Download",
+                "sessionsCount": "1"
+              },
+              {
+                "name": "download_powerpoint_analysis",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "Performance",
+            "information": [
+              {
+                "score": 74,
+                "pageviews": 19,
+                "goodPercentage": 21.1,
+                "needsImprovementPercentage": 73.7,
+                "poorPercentage": 5.3,
+                "lcpSeconds": 2.3,
+                "inpMilliseconds": 420,
+                "cls": 0.025
               }
             ]
           }

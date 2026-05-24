@@ -34,6 +34,56 @@ const LINKED_SITES = {
 // Cache for sites snapshots, populated on load.
 let SITES_CACHE = {};
 
+// Quick preview numbers used by the row-pill teaser. Reads from a manual
+// baseline export when present (wider window, e.g. 14d), otherwise falls
+// back to the latest Clarity snapshot (rolling 3-day window).
+function previewLinkedSiteNumbers(linked) {
+  const slice = resolveLinkedSiteSlice(linked);
+  if (!slice) return null;
+  const traffic = slice.metrics.find(m => m.metricName === "Traffic")?.information?.[0] || {};
+  const sessions = parseInt(traffic.totalSessionCount, 10);
+  const users    = parseInt(traffic.distinctUserCount, 10);
+  return {
+    syncedAt:   slice.syncedAt,
+    windowDays: slice.windowDays,
+    source:     slice.source,
+    sessions:   isNaN(sessions) ? null : sessions,
+    users:      isNaN(users)    ? null : users,
+  };
+}
+
+// Returns the broadest available data slice for a linked site:
+//   { metrics: [...], syncedAt, windowDays, source }
+// Prefers the manual baseline if its windowDays exceeds the latest
+// snapshot's window (snapshots default to 3-day rolling).
+function resolveLinkedSiteSlice(linked) {
+  const site = SITES_CACHE[linked.siteKey];
+  if (!site) return null;
+  const baseline = site.baseline || null;
+  const dates = Object.keys(site.snapshots || {}).sort();
+  const latestDate = dates[dates.length - 1];
+  const latestMetrics = latestDate ? site.snapshots[latestDate] : null;
+  const snapshotWindow = 3; // numOfDays used by snapshotter
+
+  if (baseline && (baseline.windowDays || 0) >= snapshotWindow) {
+    return {
+      metrics:    baseline.metrics || [],
+      syncedAt:   baseline.syncedAt,
+      windowDays: baseline.windowDays,
+      source:     baseline.source || "Clarity baseline",
+    };
+  }
+  if (latestMetrics) {
+    return {
+      metrics:    latestMetrics,
+      syncedAt:   latestDate,
+      windowDays: snapshotWindow,
+      source:     "Clarity rolling snapshot",
+    };
+  }
+  return null;
+}
+
 // ------------------------------------------------------------ utilities
 
 const fmt = (n) => (n == null ? "—" : n.toLocaleString());
@@ -169,6 +219,7 @@ function rowsFromRepos(repos) {
       referrers:    repo.referrers || [],
       paths:        repo.paths     || [],
       linkedSite:   LINKED_SITES[fullName] || null,
+      linkedSitePreview: null, // filled in by renderTable from SITES_CACHE
     };
   });
 }
@@ -207,13 +258,27 @@ function renderTable() {
     } else if (!r.hasTraffic) {
       note = `<span class="skip-note" title="No push access — public meta only"> · public meta only</span>`;
     }
+
+    // Compute live-site preview numbers (sessions + users) from latest Clarity snapshot
+    let pillHtml = "";
+    if (r.linkedSite) {
+      const preview = previewLinkedSiteNumbers(r.linkedSite);
+      r.linkedSitePreview = preview; // cache for the detail panel
+      if (preview && preview.sessions != null) {
+        const winLabel = preview.windowDays >= 7 ? `${preview.windowDays}d` : `${preview.windowDays || 3}d`;
+        pillHtml = `<span class="linked-site-pill has-numbers" title="Live site tracked by Microsoft Clarity · window: last ${winLabel}">· live site: <strong>${fmt(preview.users)}</strong> users · <strong>${fmt(preview.sessions)}</strong> sessions (${winLabel})</span>`;
+      } else {
+        pillHtml = `<span class="linked-site-pill" title="Live site tracked separately by Microsoft Clarity">+ live site traffic</span>`;
+      }
+    }
+
     return `
       <tr class="repo-row${r.linkedSite ? ' has-linked-site' : ''}" data-idx="${i}">
         <td class="repo-name">
           ${r.linkedSite ? '<span class="row-chevron" aria-hidden="true">▸</span>' : ''}
           <a href="https://github.com/${r.fullName}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${r.name}</a>
           <span class="repo-owner">${r.owner}</span>${note}
-          ${r.linkedSite ? `<span class="linked-site-pill" title="Live site tracked separately by Microsoft Clarity">+ live site traffic</span>` : ''}
+          ${pillHtml}
         </td>
         <td class="num">${fmt(r.stars)}</td>
         <td class="num">${fmt(r.forks)}</td>
@@ -254,6 +319,15 @@ function renderTable() {
       row.classList.add("is-open");
     });
   });
+
+  // Auto-expand the first linked-site row on initial render so the rich
+  // Clarity data is visible without requiring a click. Only fires once per
+  // table render (re-renders from sort/window change re-trigger it).
+  const firstLinkedRow = tbody.querySelector(".repo-row.has-linked-site");
+  if (firstLinkedRow && !tableState.autoExpandedKey) {
+    firstLinkedRow.click();
+    tableState.autoExpandedKey = sorted[parseInt(firstLinkedRow.dataset.idx, 10)]?.fullName;
+  }
 }
 
 function renderRepoDetail(r) {
@@ -291,7 +365,8 @@ function renderRepoDetail(r) {
 // lives elsewhere (e.g. CopilotROICalculator -> jordan-homepage).
 function renderLinkedSiteDetail(linked) {
   const site = SITES_CACHE[linked.siteKey];
-  if (!site || !site.snapshots) {
+  const slice = resolveLinkedSiteSlice(linked);
+  if (!site || !slice) {
     return `<div class="linked-site-panel">
       <div class="linked-site-header">
         <h3>📊 ${linked.siteTitle} · <span class="linked-site-source">Clarity</span></h3>
@@ -300,9 +375,10 @@ function renderLinkedSiteDetail(linked) {
       <p class="empty" style="padding:.5rem 0">No Clarity snapshot yet for the linked site.</p>
     </div>`;
   }
-  const dates = Object.keys(site.snapshots).sort();
-  const latestDate = dates[dates.length - 1];
-  const latest = site.snapshots[latestDate] || [];
+  const latest = slice.metrics;
+  const windowDays = slice.windowDays || 3;
+  const windowLabel = windowDays >= 7 ? `Last ${windowDays} days` : `Last ${windowDays} days (rolling)`;
+  const syncedDate = (slice.syncedAt || "").slice(0, 10);
 
   const findMetric = (name) => latest.find(m => m.metricName === name);
   const traffic       = findMetric("Traffic")?.information?.[0] || {};
@@ -317,13 +393,18 @@ function renderLinkedSiteDetail(linked) {
   const browsers      = findMetric("Browser")?.information || [];
   const devices       = findMetric("Device")?.information || [];
   const operatingSys  = findMetric("OS")?.information || [];
+  const smartEvents   = findMetric("SmartEvents")?.information || [];
+  const performance   = findMetric("Performance")?.information?.[0] || null;
 
   // Filter page titles to ROI Calculator subset if a matcher is supplied.
   const filteredTitles = linked.pageTitleMatch
     ? pageTitles.filter(p => linked.pageTitleMatch.test(p.name || ""))
     : pageTitles;
 
-  const focusedSessions = filteredTitles.reduce((sum, p) => sum + (parseInt(p.sessionsCount, 10) || 0), 0);
+  const focusedSessions = filteredTitles.reduce((sum, p) => {
+    const n = parseInt(p.sessionsCount, 10);
+    return sum + (isNaN(n) ? 0 : n);
+  }, 0);
 
   const fmtTime = (s) => {
     const n = parseInt(s, 10);
@@ -353,7 +434,7 @@ function renderLinkedSiteDetail(linked) {
       <div class="linked-site-header">
         <div>
           <h3>📊 ${linked.siteTitle}</h3>
-          <p class="linked-site-source">Clarity project <code>${site.projectId}</code> · snapshot ${latestDate}</p>
+          <p class="linked-site-source"><strong>${windowLabel}</strong> from Microsoft Clarity · project <code>${site.projectId}</code> · synced ${syncedDate}${windowDays >= 7 ? ' · <em>manual export</em>' : ''}</p>
         </div>
         <a class="linked-site-cta" href="${linked.siteUrl}" target="_blank" rel="noopener">Open live site ↗</a>
       </div>
@@ -376,18 +457,22 @@ function renderLinkedSiteDetail(linked) {
           <h4>Top referrers</h4>
           <ul>${list(referrerUrls.slice(0, 8), "name", "sessionsCount", 8, cleanRef)}</ul>
         </div>
-        <div>
-          <h4>Country</h4>
-          <ul>${list(countries)}</ul>
-        </div>
+        ${smartEvents.length ? `<div>
+          <h4>Smart events (engagement signals)</h4>
+          <ul>${list(smartEvents, "name", "sessionsCount", 8)}</ul>
+        </div>` : ''}
         <div>
           <h4>Browser</h4>
           <ul>${list(browsers)}</ul>
         </div>
-        <div>
+        ${countries.length ? `<div>
+          <h4>Country</h4>
+          <ul>${list(countries)}</ul>
+        </div>` : ''}
+        ${(devices.length || operatingSys.length) ? `<div>
           <h4>Device · OS</h4>
           <ul>${list(devices)}${list(operatingSys, "name", "sessionsCount", 4)}</ul>
-        </div>
+        </div>` : ''}
         <div>
           <h4>UX health signals</h4>
           <ul>
@@ -396,6 +481,15 @@ function renderLinkedSiteDetail(linked) {
             <li><span>Script errors (events)</span><span>${fmt(parseInt(scriptErrors.subTotal, 10))}</span></li>
           </ul>
         </div>
+        ${performance ? `<div>
+          <h4>Performance (Core Web Vitals)</h4>
+          <ul>
+            <li><span>Score</span><span>${performance.score}/100</span></li>
+            <li><span>LCP</span><span>${performance.lcpSeconds}s</span></li>
+            <li><span>INP</span><span>${performance.inpMilliseconds}ms</span></li>
+            <li><span>CLS</span><span>${performance.cls}</span></li>
+          </ul>
+        </div>` : ''}
       </div>
     </div>
   `;
