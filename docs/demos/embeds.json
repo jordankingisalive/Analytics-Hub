@@ -7,7 +7,7 @@
       "name": "Super User Adoption",
       "blurb": "Identify super-users, score adoption depth, and quantify org-wide impact. Dummy tenant data.",
       "repo": "https://github.com/microsoft/DecodingSuperUsage",
-      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=8e23218f-9f20-4693-9e41-9a7aa889e053&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
+      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=01024c9c-21a0-4571-b43f-183e6641baa9&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
       "height": 720
     },
     {
@@ -15,7 +15,7 @@
       "name": "Super User Impact",
       "blurb": "Measure the productivity lift super-users create across their teams.",
       "repo": "https://github.com/microsoft/Analytics-Hub",
-      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=6963b5e6-9c09-42e0-a896-66fd5950e1b7&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
+      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=00e297dc-9aab-460a-8034-0271a8b7e1e4&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
       "height": 720
     },
     {
@@ -23,7 +23,7 @@
       "name": "AI in One",
       "blurb": "Executive monthly review — adoption, sentiment, license utilisation, ROI, in one report.",
       "repo": "https://github.com/microsoft/AI-in-One-Dashboard",
-      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=05bd0dd8-af04-4217-8ee2-6674e583198b&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
+      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=60ff9554-a5d4-41bf-b4fe-c06dcabda182&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
       "height": 720
     },
     {
@@ -63,7 +63,7 @@
       "name": "Champion ID",
       "blurb": "Identify and rank Copilot champions across the org — surfaces top advocates, influence reach, and enablement candidates. From the customizecopilot repo.",
       "repo": "https://github.com/microsoft/customizecopilot",
-      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=63357f27-5bbb-4bde-a816-c259fd9d2b04&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
+      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=710f8f82-b733-45d6-9296-f3ff9f573d21&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
       "height": 720
     },
     {
