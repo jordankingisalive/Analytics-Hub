@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-24T13:21:00Z",
+  "lastUpdated": "2026-05-25T07:11:46.003929Z",
   "repos": {
     "microsoft/Analytics-Hub": {
       "meta": {
@@ -2992,6 +2992,343 @@
               }
             ]
           }
+        ],
+        "2026-05-25": [
+          {
+            "metricName": "DeadClickCount",
+            "information": [
+              {
+                "sessionsCount": "59",
+                "sessionsWithMetricPercentage": 20.34,
+                "sessionsWithoutMetricPercentage": 79.66,
+                "pagesViews": "27",
+                "subTotal": "50"
+              }
+            ]
+          },
+          {
+            "metricName": "ExcessiveScroll",
+            "information": [
+              {
+                "sessionsCount": "59",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "RageClickCount",
+            "information": [
+              {
+                "sessionsCount": "59",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "QuickbackClick",
+            "information": [
+              {
+                "sessionsCount": "59",
+                "sessionsWithMetricPercentage": 16.95,
+                "sessionsWithoutMetricPercentage": 83.05,
+                "pagesViews": "28",
+                "subTotal": "28"
+              }
+            ]
+          },
+          {
+            "metricName": "ScriptErrorCount",
+            "information": [
+              {
+                "sessionsCount": "59",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "ErrorClickCount",
+            "information": [
+              {
+                "sessionsCount": "59",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "ScrollDepth",
+            "information": [
+              {
+                "averageScrollDepth": 55.87
+              }
+            ]
+          },
+          {
+            "metricName": "Traffic",
+            "information": [
+              {
+                "totalSessionCount": "59",
+                "totalBotSessionCount": "25",
+                "distinctUserCount": "57",
+                "pagesPerSessionPercentage": 3.1494252873563218
+              }
+            ]
+          },
+          {
+            "metricName": "EngagementTime",
+            "information": [
+              {
+                "totalTime": "441",
+                "activeTime": "97"
+              }
+            ]
+          },
+          {
+            "metricName": "Browser",
+            "information": [
+              {
+                "name": "Chrome",
+                "sessionsCount": "22"
+              },
+              {
+                "name": "Edge",
+                "sessionsCount": "21"
+              },
+              {
+                "name": "EdgeMobile",
+                "sessionsCount": "6"
+              },
+              {
+                "name": "ChromeMobile",
+                "sessionsCount": "5"
+              },
+              {
+                "name": "MobileSafari",
+                "sessionsCount": "3"
+              },
+              {
+                "name": "Firefox",
+                "sessionsCount": "2"
+              }
+            ]
+          },
+          {
+            "metricName": "Device",
+            "information": [
+              {
+                "name": "PC",
+                "sessionsCount": "45"
+              },
+              {
+                "name": "Mobile",
+                "sessionsCount": "14"
+              }
+            ]
+          },
+          {
+            "metricName": "OS",
+            "information": [
+              {
+                "name": "Windows",
+                "sessionsCount": "35"
+              },
+              {
+                "name": "IOS",
+                "sessionsCount": "13"
+              },
+              {
+                "name": "Linux",
+                "sessionsCount": "8"
+              },
+              {
+                "name": "MacOSX",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "Android",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "Country",
+            "information": [
+              {
+                "name": "United States",
+                "sessionsCount": "51"
+              },
+              {
+                "name": "Colombia",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "France",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "Canada",
+                "sessionsCount": "1"
+              },
+              {
+                "name": "Italy",
+                "sessionsCount": "1"
+              },
+              {
+                "name": "Poland",
+                "sessionsCount": "1"
+              },
+              {
+                "name": "United Kingdom",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "PageTitle",
+            "information": [
+              {
+                "name": "Analytics Hub \u00b7 Microsoft Copilot & AI Adoption Toolkit",
+                "sessionsCount": "41"
+              },
+              {
+                "name": "Pages Analytics \u00b7 Analytics Hub",
+                "sessionsCount": "16"
+              },
+              {
+                "name": "Find a Report \u00b7 Analytics Hub",
+                "sessionsCount": "11"
+              },
+              {
+                "name": "Team \u00b7 Analytics Hub",
+                "sessionsCount": "11"
+              },
+              {
+                "name": "Data Sources \u00b7 Analytics Hub",
+                "sessionsCount": "9"
+              },
+              {
+                "name": "Microsoft Copilot Adoption Dashboards | Analytics Hub by Microsoft",
+                "sessionsCount": "8"
+              },
+              {
+                "name": "Native Reports \u00b7 Analytics Hub by Microsoft",
+                "sessionsCount": "4"
+              },
+              {
+                "name": "Case Studies \u00b7 Analytics Hub",
+                "sessionsCount": "3"
+              },
+              {
+                "name": "Internal Demos \u2014 Live Report Walkthroughs \u00b7 Analytics Hub",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "Compare Copilot Reporting Tools \u00b7 Analytics Hub",
+                "sessionsCount": "2"
+              }
+            ]
+          },
+          {
+            "metricName": "ReferrerUrl",
+            "information": [
+              {
+                "name": null,
+                "sessionsCount": "46"
+              },
+              {
+                "name": "https://microsoft.github.io/Analytics-Hub/",
+                "sessionsCount": "18"
+              },
+              {
+                "name": "https://microsoft.github.io/Analytics-Hub/find-a-tool/",
+                "sessionsCount": "9"
+              },
+              {
+                "name": "https://microsoft.github.io/Analytics-Hub/data-sources/",
+                "sessionsCount": "6"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/Analytics-Hub/team/",
+                "sessionsCount": "4"
+              },
+              {
+                "name": "https://teams.public.onecdn.static.microsoft/",
+                "sessionsCount": "4"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/Analytics-Hub/",
+                "sessionsCount": "3"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/Analytics-Hub/data-sources/",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/Analytics-Hub/compare/",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "https://microsoft.github.io/Analytics-Hub/case-studies/",
+                "sessionsCount": "2"
+              }
+            ]
+          },
+          {
+            "metricName": "PopularPages",
+            "information": [
+              {
+                "url": "https://jordankingisalive.github.io/Analytics-Hub/",
+                "visitsCount": "53"
+              },
+              {
+                "url": "https://microsoft.github.io/Analytics-Hub/",
+                "visitsCount": "19"
+              },
+              {
+                "url": "https://microsoft.github.io/Analytics-Hub/pages-analytics/",
+                "visitsCount": "14"
+              },
+              {
+                "url": "https://microsoft.github.io/Analytics-Hub/find-a-tool/",
+                "visitsCount": "12"
+              },
+              {
+                "url": "https://microsoft.github.io/Analytics-Hub/team/",
+                "visitsCount": "10"
+              },
+              {
+                "url": "https://microsoft.github.io/Analytics-Hub/data-sources/",
+                "visitsCount": "9"
+              },
+              {
+                "url": "https://microsoft.github.io/Analytics-Hub/out-of-the-box/",
+                "visitsCount": "4"
+              },
+              {
+                "url": "https://jordankingisalive.github.io/Analytics-Hub/pages-analytics/",
+                "visitsCount": "3"
+              },
+              {
+                "url": "https://jordankingisalive.github.io/Analytics-Hub/find-a-tool/",
+                "visitsCount": "2"
+              },
+              {
+                "url": "https://jordankingisalive.github.io/Analytics-Hub/faq/",
+                "visitsCount": "2"
+              }
+            ]
+          }
         ]
       }
     },
@@ -3424,6 +3761,271 @@
               {
                 "url": "https://jordankingisalive.github.io/CopilotROICalculator/",
                 "visitsCount": "2"
+              }
+            ]
+          }
+        ],
+        "2026-05-25": [
+          {
+            "metricName": "DeadClickCount",
+            "information": [
+              {
+                "sessionsCount": "49",
+                "sessionsWithMetricPercentage": 14.29,
+                "sessionsWithoutMetricPercentage": 85.71000000000001,
+                "pagesViews": "7",
+                "subTotal": "15"
+              }
+            ]
+          },
+          {
+            "metricName": "ExcessiveScroll",
+            "information": [
+              {
+                "sessionsCount": "49",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "RageClickCount",
+            "information": [
+              {
+                "sessionsCount": "49",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "QuickbackClick",
+            "information": [
+              {
+                "sessionsCount": "49",
+                "sessionsWithMetricPercentage": 0,
+                "sessionsWithoutMetricPercentage": 100,
+                "pagesViews": "0",
+                "subTotal": "0"
+              }
+            ]
+          },
+          {
+            "metricName": "ScriptErrorCount",
+            "information": [
+              {
+                "sessionsCount": "49",
+                "sessionsWithMetricPercentage": 48.98,
+                "sessionsWithoutMetricPercentage": 51.02,
+                "pagesViews": "24",
+                "subTotal": "65"
+              }
+            ]
+          },
+          {
+            "metricName": "ErrorClickCount",
+            "information": [
+              {
+                "sessionsCount": "49",
+                "sessionsWithMetricPercentage": 8.16,
+                "sessionsWithoutMetricPercentage": 91.84,
+                "pagesViews": "4",
+                "subTotal": "4"
+              }
+            ]
+          },
+          {
+            "metricName": "ScrollDepth",
+            "information": [
+              {
+                "averageScrollDepth": 59.38
+              }
+            ]
+          },
+          {
+            "metricName": "Traffic",
+            "information": [
+              {
+                "totalSessionCount": "50",
+                "totalBotSessionCount": "2",
+                "distinctUserCount": "54",
+                "pagesPerSessionPercentage": 1.037037037037037
+              }
+            ]
+          },
+          {
+            "metricName": "EngagementTime",
+            "information": [
+              {
+                "totalTime": "131",
+                "activeTime": "46"
+              }
+            ]
+          },
+          {
+            "metricName": "Browser",
+            "information": [
+              {
+                "name": "Edge",
+                "sessionsCount": "35"
+              },
+              {
+                "name": "Chrome",
+                "sessionsCount": "14"
+              },
+              {
+                "name": "EdgeMobile",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "Device",
+            "information": [
+              {
+                "name": "PC",
+                "sessionsCount": "49"
+              },
+              {
+                "name": "Mobile",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "OS",
+            "information": [
+              {
+                "name": "Windows",
+                "sessionsCount": "44"
+              },
+              {
+                "name": "MacOSX",
+                "sessionsCount": "5"
+              },
+              {
+                "name": "IOS",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "Country",
+            "information": [
+              {
+                "name": "United States",
+                "sessionsCount": "21"
+              },
+              {
+                "name": "Germany",
+                "sessionsCount": "13"
+              },
+              {
+                "name": "Spain",
+                "sessionsCount": "9"
+              },
+              {
+                "name": "United Kingdom",
+                "sessionsCount": "6"
+              },
+              {
+                "name": "Colombia",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "PageTitle",
+            "information": [
+              {
+                "name": "M365 Copilot Productivity ROI Calculator",
+                "sessionsCount": "28"
+              },
+              {
+                "name": "M365 Copilot Productivity ROI Projections",
+                "sessionsCount": "12"
+              },
+              {
+                "name": "Copilot Adoption Journey - Productivity ROI Over Time",
+                "sessionsCount": "7"
+              },
+              {
+                "name": "Changelog - M365 Copilot ROI Calculator",
+                "sessionsCount": "3"
+              }
+            ]
+          },
+          {
+            "metricName": "ReferrerUrl",
+            "information": [
+              {
+                "name": null,
+                "sessionsCount": "19"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/",
+                "sessionsCount": "8"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/CopilotROICalculator/index.html",
+                "sessionsCount": "6"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/CopilotROICalculator/roi-calculator.html",
+                "sessionsCount": "5"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/CopilotROICalculator/",
+                "sessionsCount": "3"
+              },
+              {
+                "name": "https://statics.teams.cdn.office.net/",
+                "sessionsCount": "3"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/CopilotROICalculator/Start%20Here.html",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "https://teams.public.onecdn.static.microsoft/",
+                "sessionsCount": "2"
+              },
+              {
+                "name": "https://github.com/microsoft/Analytics-Hub",
+                "sessionsCount": "1"
+              },
+              {
+                "name": "https://jordankingisalive.github.io/CopilotROICalculator/run-locally.html",
+                "sessionsCount": "1"
+              }
+            ]
+          },
+          {
+            "metricName": "PopularPages",
+            "information": [
+              {
+                "url": "https://jordankingisalive.github.io/CopilotROICalculator/",
+                "visitsCount": "14"
+              },
+              {
+                "url": "https://jordankingisalive.github.io/CopilotROICalculator/index.html",
+                "visitsCount": "14"
+              },
+              {
+                "url": "https://jordankingisalive.github.io/CopilotROICalculator/roi-calculator.html",
+                "visitsCount": "12"
+              },
+              {
+                "url": "https://jordankingisalive.github.io/CopilotROICalculator/Start%20Here.html",
+                "visitsCount": "8"
+              },
+              {
+                "url": "https://jordankingisalive.github.io/CopilotROICalculator/changelog.html",
+                "visitsCount": "4"
               }
             ]
           }
