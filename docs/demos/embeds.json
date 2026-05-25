@@ -7,7 +7,7 @@
       "name": "Super User Adoption",
       "blurb": "Identify super-users, score adoption depth, and quantify org-wide impact. Dummy tenant data.",
       "repo": "https://github.com/microsoft/DecodingSuperUsage",
-      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=8e23218f-9f20-4693-9e41-9a7aa889e053&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=8e23218f-9f20-4693-9e41-9a7aa889e053&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
       "height": 720
     },
     {
