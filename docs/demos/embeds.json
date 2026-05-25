@@ -59,6 +59,14 @@
       "height": 720
     },
     {
+      "id": "m365-readiness",
+      "name": "M365 Copilot Readiness",
+      "blurb": "License readiness and adoption gaps — who has Copilot, who is using it, where to focus enablement next.",
+      "repo": "https://github.com/microsoft/M365UsageAnalytics",
+      "embedUrl": "",
+      "height": 720
+    },
+    {
       "id": "champion-id",
       "name": "Champion ID",
       "blurb": "Identify and rank Copilot champions across the org — surfaces top advocates, influence reach, and enablement candidates. From the customizecopilot repo.",
