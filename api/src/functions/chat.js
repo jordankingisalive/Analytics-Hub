@@ -24,7 +24,7 @@ const AOAI_API_VERSION  = process.env.AOAI_API_VERSION || '2024-10-21';
 const ALLOWED_ORIGINS   = (process.env.ALLOWED_ORIGINS || '*')
   .split(',').map(s => s.trim()).filter(Boolean);
 const RATE_LIMIT_PER_HOUR = parseInt(process.env.RATE_LIMIT_PER_HOUR || '15', 10);
-const MAX_TOKENS          = parseInt(process.env.MAX_TOKENS || '800', 10);
+const MAX_TOKENS          = parseInt(process.env.MAX_TOKENS || '3000', 10);
 
 const buckets = new Map(); // ip -> [timestamp, ...]
 
