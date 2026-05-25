@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="osCxYZt_4rM_dBEUcK15g-bl2Ny5g6I80gJlFZ6eKlY" />
+  <title>Copilot Reporting FAQ — How to Measure Microsoft 365 Copilot Adoption · Analytics Hub</title>
+  <meta name="description" content="Answers to the most common questions about measuring Microsoft 365 Copilot adoption, ROI, license utilization, agent usage, and sentiment using the open-source Analytics Hub by Microsoft." />
+  <link rel="canonical" href="https://microsoft.github.io/Analytics-Hub/faq/" />
+  <meta name="theme-color" content="#0078d4" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../favicon.svg" />
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Analytics Hub by Microsoft" />
+  <meta property="og:url" content="https://microsoft.github.io/Analytics-Hub/faq/" />
+  <meta property="og:title" content="Copilot Reporting FAQ · Analytics Hub" />
+  <meta property="og:description" content="Answers to the most common questions about measuring Microsoft 365 Copilot adoption, ROI, license utilization, and sentiment." />
+  <meta property="og:image" content="https://microsoft.github.io/Analytics-Hub/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Copilot Reporting FAQ · Analytics Hub" />
+  <meta name="twitter:description" content="Answers to the most common questions about measuring Microsoft 365 Copilot adoption, ROI, and sentiment." />
+  <meta name="twitter:image" content="https://microsoft.github.io/Analytics-Hub/og-card.png" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I measure Microsoft 365 Copilot adoption?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microsoft 365 Copilot adoption is best measured across five layers: license assignment (who has it), enablement (who has signed in), usage (who is actively prompting), depth (how many surfaces — Word, Excel, Teams, Outlook — they use), and sentiment (do they say it's helping). The AI-in-One Dashboard combines all five into a single Power BI report by pulling from Microsoft 365 admin center exports, Viva Insights Copilot Dashboard data, and optional Purview audit logs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best Power BI template for Copilot reporting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There isn't one best template — the right report depends on the question. For an executive monthly review, use the AI-in-One Dashboard. For prompt-level chat analytics, use the Chat Intelligence Report. For declarative and custom agent telemetry, use the Agent Intelligence Report. For ROI and license utilization defence, use the Super User Impact and Decoding Super Usage reports. The Find a Report page on the Analytics Hub maps every business question to the right report."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between the Viva Insights Copilot Dashboard and the Analytics Hub?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Viva Insights Copilot Dashboard is the native Microsoft dashboard included with Viva Insights — it shows adoption, behavioural change, and ROI for tenants with the right Viva licensing. The Analytics Hub is an open-source toolkit from the same Microsoft Copilot ROI Advisory team that extends Viva data with prompt-level intelligence, agent telemetry, super-user analysis, sentiment, and PowerShell exporters for tenants that need to combine multiple data sources or do not have Viva at all."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I report on Microsoft 365 Copilot license utilization?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "License utilization for Microsoft 365 Copilot is measured by comparing assigned licenses against active, recently active, and depth-of-use cohorts. The Super User Impact and Decoding Super Usage reports surface utilization by cohort, identify dormant licenses for reclamation, and show which licensed users are driving the majority of measurable value — the data leadership needs to defend or reallocate license waves."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I measure Copilot agent usage and ROI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Agent Intelligence Report ingests Copilot agent telemetry — declarative agents, custom engine agents, and Studio-built agents — and breaks down usage by agent, by author, by department, and by outcome. It pairs with the Chat Intelligence Report so leadership can see both human chat patterns and agent invocations in one Power BI model."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need Viva Insights to use the Analytics Hub?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Most reports in the Analytics Hub run on data you already have — Microsoft 365 admin center CSV exports, Purview audit logs, or the included PowerShell exporters such as PAX. A subset of reports lights up additional pages when Viva Insights Copilot Dashboard data is available, but the core adoption, usage, agent, and sentiment reporting works without a Viva license."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I export Microsoft 365 Copilot audit logs for reporting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Purview Audit retains Copilot interactions for up to a year (with the right SKU). PAX — the PowerShell Audit Exporter included with the Analytics Hub — automates the search, retrieval, and CSV export of those audit records into a shape the Chat Intelligence and Agent Intelligence reports can consume. Setup is documented on the Find a Report page; the only prerequisites are Purview Audit and an account with Audit Reader and Compliance Administrator rights."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Analytics Hub free and open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every report, template, and exporter in the Analytics Hub is published under the MIT license on the microsoft/Analytics-Hub GitHub repository. There is no licensing cost, no telemetry calls back to Microsoft from the templates, and no Microsoft consulting engagement required to run them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who builds and maintains the Analytics Hub?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Microsoft Copilot ROI Advisory Team — a group of People Scientists, Business Value Advisors, Customer Success Managers, and Solutions Architects inside Microsoft who work daily with the largest Copilot rollouts. Every report originated from a real customer engagement and has been pressure-tested in production tenants."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get help if a report breaks or I have a question?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open an issue on the Analytics Hub GitHub repository, or use the Feedback page on this site to email the team directly. Every report repository also includes a troubleshooting section and admin-friendly email templates you can forward to your IT or licensing team to request access to the underlying data sources."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://github.com" />
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvfood6j5g");
+  </script>
+  <meta name="clarity-page" content="FAQ" />
+  <script src="../clarity-events.js" defer></script>
+  <link rel="stylesheet" href="../palette.css" />
+  <script src="../palette.js" defer></script>
+  <script src="../nudges.js" defer></script>
+  <script src="../copilot/widget.js" defer></script>
+  <style>
+    .faq-page { padding: 60px 0 80px; }
+    .faq-hero { background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); padding: 60px 0 40px; border-bottom: 1px solid var(--border); }
+    .faq-hero h1 { font-size: clamp(32px,4vw,46px); margin: 12px 0 14px; background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .faq-hero .lede { font-size: 17px; color: var(--text-soft); max-width: 760px; margin: 0; }
+    .faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; }
+    .faq-item[open] { border-color: var(--accent); box-shadow: 0 6px 20px rgba(0,120,212,.08); }
+    .faq-item summary {
+      list-style: none; cursor: pointer; padding: 20px 24px;
+      font-size: 17px; font-weight: 600; color: var(--text);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+"; font-size: 24px; font-weight: 400;
+      color: var(--accent); transition: transform .2s ease;
+      line-height: 1;
+    }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-item .faq-answer { padding: 0 24px 22px; color: var(--text-soft); font-size: 15.5px; line-height: 1.65; }
+    .faq-answer p { margin: 0 0 12px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+    .faq-cta-strip {
+      max-width: 860px; margin: 50px auto 0;
+      background: linear-gradient(135deg, var(--bg-alt) 0%, color-mix(in srgb, var(--accent) 6%, var(--surface)) 100%);
+      border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px 28px; text-align: center;
+    }
+    .faq-cta-strip h2 { margin: 0 0 8px; font-size: 22px; }
+    .faq-cta-strip p { margin: 0 0 16px; color: var(--text-soft); font-size: 15px; }
+    .faq-cta-strip .cta-row { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .faq-cta-strip a {
+      display: inline-block; padding: 10px 18px;
+      border-radius: 10px; font-weight: 600; font-size: 14.5px;
+      text-decoration: none; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text);
+    }
+    .faq-cta-strip a.primary {
+      background: var(--accent-grad); color: #fff !important; border-color: transparent;
+    }
+    .faq-cta-strip a:hover { transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+<a class="ah-skip" href="#top">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="brand-mark">🧠</span>
+      <span class="brand-name">Analytics Hub</span>
+      <span class="brand-by"><svg class="ms-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" aria-hidden="true" focusable="false"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M12 1h10v10H12z"/><path fill="#00A4EF" d="M1 12h10v10H12z"/><path fill="#FFB900" d="M12 12h10v10H12z"/></svg>by Microsoft</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="../">Home</a>
+      <a href="../find-a-tool/">Find a Report</a>
+      <a href="../out-of-the-box/">Native Reports</a>
+      <a href="../data-sources/">Data Sources</a>
+      <a href="../case-studies/">Case Studies</a>
+      <a href="../team/">Team</a>
+      <div class="nav-dropdown" data-open="false">
+        <button class="nav-dropdown-trigger" type="button" aria-current="page">Resources <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="../faq/" role="menuitem" aria-current="page"><span class="menu-icon" aria-hidden="true">❓</span><span class="menu-text">FAQ<span class="menu-sub">Common questions answered</span></span></a>
+          <a href="../glossary/" role="menuitem"><span class="menu-icon" aria-hidden="true">📖</span><span class="menu-text">Glossary<span class="menu-sub">Copilot reporting terms</span></span></a>
+          <a href="../compare/" role="menuitem"><span class="menu-icon" aria-hidden="true">⚖️</span><span class="menu-text">Compare Reports<span class="menu-sub">Side-by-side comparisons</span></span></a>
+          <a href="../feedback/" role="menuitem"><span class="menu-icon" aria-hidden="true">💬</span><span class="menu-text">Feedback<span class="menu-sub">Problem · suggestion · praise</span></span></a>
+        </div>
+      </div>
+      <a class="nav-cta" href="https://github.com/microsoft/Analytics-Hub" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="faq-page">
+
+  <section class="faq-hero">
+    <div class="wrap">
+      <p class="eyebrow">Frequently asked questions</p>
+      <h1>Everything you need to know about Copilot reporting.</h1>
+      <p class="lede">
+        These are the questions stakeholders ask us most often — about measuring
+        Microsoft 365 Copilot adoption, defending ROI, exporting audit logs, and
+        choosing the right Power BI template. Can't find what you're looking for?
+        <a href="../feedback/">Send us a suggestion</a> and we'll add it.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:50px">
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>How do I measure Microsoft 365 Copilot adoption?</summary>
+        <div class="faq-answer">
+          <p>Microsoft 365 Copilot adoption is best measured across five layers: <strong>license assignment</strong> (who has it), <strong>enablement</strong> (who has signed in), <strong>usage</strong> (who is actively prompting), <strong>depth</strong> (how many surfaces — Word, Excel, Teams, Outlook — they use), and <strong>sentiment</strong> (do they say it's helping).</p>
+          <p>The <a href="../find-a-tool/">AI-in-One Dashboard</a> combines all five into a single Power BI report by pulling from Microsoft 365 admin center exports, Viva Insights Copilot Dashboard data, and optional Purview audit logs.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the best Power BI template for Copilot reporting?</summary>
+        <div class="faq-answer">
+          <p>There isn't one best template — the right report depends on the question. Use this matchup:</p>
+          <p>
+            <strong>Executive monthly review</strong> → AI-in-One Dashboard<br />
+            <strong>Prompt-level chat analytics</strong> → Chat Intelligence Report<br />
+            <strong>Declarative and custom agent telemetry</strong> → Agent Intelligence Report<br />
+            <strong>ROI and license utilization defence</strong> → Super User Impact + Decoding Super Usage<br />
+            <strong>Sentiment and adoption psychology</strong> → Copilot Adoption &amp; Sentiment Report
+          </p>
+          <p>The <a href="../find-a-tool/">Find a Report</a> page maps every business question to the right template in one click.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's the difference between the Viva Insights Copilot Dashboard and the Analytics Hub?</summary>
+        <div class="faq-answer">
+          <p>The <strong>Viva Insights Copilot Dashboard</strong> is the native Microsoft dashboard included with Viva Insights — it shows adoption, behavioural change, and ROI for tenants with the right Viva licensing.</p>
+          <p>The <strong>Analytics Hub</strong> is an open-source toolkit from the same Microsoft Copilot ROI Advisory team that <em>extends</em> Viva data with prompt-level intelligence, agent telemetry, super-user analysis, sentiment, and PowerShell exporters — for tenants that need to combine multiple data sources, or that don't have Viva at all.</p>
+          <p>See the full <a href="../compare/">side-by-side comparison</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I report on Microsoft 365 Copilot license utilization?</summary>
+        <div class="faq-answer">
+          <p>License utilization is measured by comparing <strong>assigned</strong> licenses against <strong>active</strong>, <strong>recently active</strong>, and <strong>depth-of-use</strong> cohorts.</p>
+          <p>The Super User Impact and Decoding Super Usage reports surface utilization by cohort, identify dormant licenses for reclamation, and show which licensed users are driving the majority of measurable value — exactly the data leadership needs to defend or reallocate license waves.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I measure Copilot agent usage and ROI?</summary>
+        <div class="faq-answer">
+          <p>Yes. The Agent Intelligence Report ingests Copilot agent telemetry — declarative agents, custom engine agents, and Studio-built agents — and breaks down usage by agent, by author, by department, and by outcome.</p>
+          <p>It pairs with the Chat Intelligence Report so leadership can see both human chat patterns and agent invocations in a single Power BI model.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need Viva Insights to use the Analytics Hub?</summary>
+        <div class="faq-answer">
+          <p><strong>No.</strong> Most reports in the Analytics Hub run on data you already have — Microsoft 365 admin center CSV exports, Purview audit logs, or the included PowerShell exporters such as PAX.</p>
+          <p>A subset of reports lights up additional pages when Viva Insights Copilot Dashboard data is available, but the core adoption, usage, agent, and sentiment reporting works without a Viva license. The <a href="../data-sources/">Data Sources map</a> shows which template needs what.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I export Microsoft 365 Copilot audit logs for reporting?</summary>
+        <div class="faq-answer">
+          <p><strong>Purview Audit</strong> retains Copilot interactions for up to a year (with the right SKU). <strong>PAX</strong> — the PowerShell Audit Exporter included with the Analytics Hub — automates the search, retrieval, and CSV export of those audit records into a shape the Chat Intelligence and Agent Intelligence reports can consume.</p>
+          <p>Setup is documented on the <a href="../find-a-tool/">Find a Report</a> page. The only prerequisites are Purview Audit and an account with Audit Reader + Compliance Administrator rights.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is the Analytics Hub free and open source?</summary>
+        <div class="faq-answer">
+          <p><strong>Yes.</strong> Every report, template, and exporter in the Analytics Hub is published under the <a href="https://github.com/microsoft/Analytics-Hub/blob/main/LICENSE.md" target="_blank" rel="noopener">MIT license</a> on the <a href="https://github.com/microsoft/Analytics-Hub" target="_blank" rel="noopener">microsoft/Analytics-Hub</a> GitHub repository.</p>
+          <p>There is no licensing cost, no telemetry calls back to Microsoft from the templates, and no Microsoft consulting engagement required to run them.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Who builds and maintains the Analytics Hub?</summary>
+        <div class="faq-answer">
+          <p>The <a href="../team/">Microsoft Copilot ROI Advisory Team</a> — a group of People Scientists, Business Value Advisors, Customer Success Managers, and Solutions Architects inside Microsoft who work daily with the largest Copilot rollouts.</p>
+          <p>Every report originated from a real customer engagement and has been pressure-tested in production tenants before it ships here.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I get help if a report breaks or I have a question?</summary>
+        <div class="faq-answer">
+          <p>Three options, in order of speed:</p>
+          <p>
+            1. Use the <a href="../feedback/">Feedback page</a> to email the team directly (problem, suggestion, or praise)<br />
+            2. Open an issue on the <a href="https://github.com/microsoft/Analytics-Hub/issues" target="_blank" rel="noopener">microsoft/Analytics-Hub GitHub repository</a><br />
+            3. Check the troubleshooting section in the report's own README, plus the admin-friendly email templates you can forward to your IT or licensing team
+          </p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="faq-cta-strip">
+      <h2>Didn't see your question?</h2>
+      <p>The team reads every message. We'll add common questions back here for the next visitor.</p>
+      <div class="cta-row">
+        <a href="../feedback/" class="primary">💬 Ask a question</a>
+        <a href="../glossary/">📖 Glossary of terms</a>
+        <a href="../find-a-tool/">🔍 Find a report</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-fine">
+      © Microsoft Corporation · MIT Licensed · <a href="../">Analytics Hub home</a> · <a href="../feedback/">Send feedback</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -77,3 +77,67 @@
 
   window.ahNudge = { pulse, toast };
 })();
+
+/* ============================================================
+   Nav dropdown toggle (Resources menu)
+   - CSS handles hover and :focus-within open
+   - JS adds click-to-toggle + outside-click close + Esc close
+   - Multiple .nav-dropdown elements supported
+   ============================================================ */
+(function () {
+  function init() {
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+    if (!dropdowns.length) return;
+
+    dropdowns.forEach((dd) => {
+      const trigger = dd.querySelector(".nav-dropdown-trigger");
+      if (!trigger) return;
+      trigger.setAttribute("aria-haspopup", "true");
+      trigger.setAttribute("aria-expanded", "false");
+
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        const open = dd.getAttribute("data-open") === "true";
+        // Close any other open dropdowns
+        dropdowns.forEach((d) => {
+          d.setAttribute("data-open", "false");
+          const t = d.querySelector(".nav-dropdown-trigger");
+          if (t) t.setAttribute("aria-expanded", "false");
+        });
+        if (!open) {
+          dd.setAttribute("data-open", "true");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    // Outside click closes
+    document.addEventListener("click", (e) => {
+      dropdowns.forEach((dd) => {
+        if (!dd.contains(e.target)) {
+          dd.setAttribute("data-open", "false");
+          const t = dd.querySelector(".nav-dropdown-trigger");
+          if (t) t.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    // Escape closes
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      dropdowns.forEach((dd) => {
+        if (dd.getAttribute("data-open") === "true") {
+          dd.setAttribute("data-open", "false");
+          const t = dd.querySelector(".nav-dropdown-trigger");
+          if (t) { t.setAttribute("aria-expanded", "false"); t.focus(); }
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

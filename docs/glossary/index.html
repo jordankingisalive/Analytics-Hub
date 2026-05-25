@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="osCxYZt_4rM_dBEUcK15g-bl2Ny5g6I80gJlFZ6eKlY" />
+  <title>Copilot Reporting Glossary — Definitions for Adoption, Sentiment, Agents · Analytics Hub</title>
+  <meta name="description" content="Plain-English definitions of every term used across the Analytics Hub — adoption, license utilization, super user, sentiment score, agent telemetry, PAX, prompt depth, and more." />
+  <link rel="canonical" href="https://microsoft.github.io/Analytics-Hub/glossary/" />
+  <meta name="theme-color" content="#0078d4" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../favicon.svg" />
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Analytics Hub by Microsoft" />
+  <meta property="og:url" content="https://microsoft.github.io/Analytics-Hub/glossary/" />
+  <meta property="og:title" content="Copilot Reporting Glossary · Analytics Hub" />
+  <meta property="og:description" content="Plain-English definitions for every term used across the Analytics Hub Copilot reporting toolkit." />
+  <meta property="og:image" content="https://microsoft.github.io/Analytics-Hub/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Copilot Reporting Glossary · Analytics Hub" />
+  <meta name="twitter:description" content="Plain-English definitions for every term used across the Analytics Hub." />
+  <meta name="twitter:image" content="https://microsoft.github.io/Analytics-Hub/og-card.png" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "Microsoft Copilot Reporting Glossary",
+    "description": "Definitions for every term used across the Microsoft Analytics Hub for Copilot adoption, agent telemetry, sentiment, and ROI reporting.",
+    "url": "https://microsoft.github.io/Analytics-Hub/glossary/",
+    "hasDefinedTerm": [
+      { "@type": "DefinedTerm", "name": "Adoption", "description": "The percentage of licensed users who are actively using Copilot in a given period, typically measured weekly or monthly." },
+      { "@type": "DefinedTerm", "name": "Agent (Copilot Agent)", "description": "A purpose-built Copilot extension — declarative, custom engine, or Studio-authored — that responds to a defined scope of prompts." },
+      { "@type": "DefinedTerm", "name": "Agent Telemetry", "description": "Usage data emitted by Copilot agents, including invocations, authors, departments, and outcomes, surfaced in the Agent Intelligence Report." },
+      { "@type": "DefinedTerm", "name": "AI-in-One Dashboard", "description": "The flagship executive Power BI report in the Analytics Hub that consolidates adoption, usage, depth, and sentiment into a single view." },
+      { "@type": "DefinedTerm", "name": "Audit Reader", "description": "A Microsoft 365 role that grants permission to search the Purview unified audit log — a prerequisite for PAX." },
+      { "@type": "DefinedTerm", "name": "BVA (Business Value Advisor)", "description": "A Microsoft role focused on quantifying and articulating the business value of a customer's Microsoft investment." },
+      { "@type": "DefinedTerm", "name": "Champion ID", "description": "A workflow in the CustomizeCopilot toolkit that helps identify and onboard internal Copilot champions." },
+      { "@type": "DefinedTerm", "name": "Chat Intelligence Report", "description": "A Power BI template in the CopilotChatAnalytics repo that surfaces prompt-level chat patterns from Purview audit data." },
+      { "@type": "DefinedTerm", "name": "Cohort", "description": "A grouping of users by behaviour — active, recently active, dormant, super user — used to compare engagement across populations." },
+      { "@type": "DefinedTerm", "name": "Copilot Adoption & Sentiment Report", "description": "A Power BI template that combines adoption telemetry with survey-based sentiment scores to explain why adoption is or isn't moving." },
+      { "@type": "DefinedTerm", "name": "CSM (Customer Success Manager)", "description": "A Microsoft role that owns the customer's outcomes against their Copilot deployment." },
+      { "@type": "DefinedTerm", "name": "Custom Engine Agent", "description": "A Copilot agent built on a custom orchestration layer rather than the declarative format, surfaced separately in the Agent Intelligence Report." },
+      { "@type": "DefinedTerm", "name": "Decoding Super Usage", "description": "A Power BI template that breaks down what super users do differently — surfaces, prompt patterns, depth — so the behaviour can be replicated." },
+      { "@type": "DefinedTerm", "name": "Declarative Agent", "description": "A YAML-defined Copilot agent that runs on the standard Copilot orchestration, the most common agent type in enterprise deployments." },
+      { "@type": "DefinedTerm", "name": "Depth of Use", "description": "How many Copilot surfaces (Word, Excel, Teams, Outlook, Loop, etc.) an individual actively uses, a leading indicator of long-term retention." },
+      { "@type": "DefinedTerm", "name": "DirectQuery", "description": "A Power BI connection mode where queries run live against the source rather than against a cached import — used by the DirectQuery variants of Decoding Super Usage." },
+      { "@type": "DefinedTerm", "name": "Dormant License", "description": "An assigned Copilot license that has shown no measurable usage over a defined period — a primary candidate for reclamation." },
+      { "@type": "DefinedTerm", "name": "License Utilization", "description": "Ratio of active users to assigned licenses for Microsoft 365 Copilot, the core defensibility metric for license renewal conversations." },
+      { "@type": "DefinedTerm", "name": "M365UsageAnalytics", "description": "A Microsoft 365 Usage Analytics scaffold in the Analytics Hub that connects native M365 usage data to the broader Copilot reporting model." },
+      { "@type": "DefinedTerm", "name": "PAX", "description": "PowerShell Audit Exporter — the Analytics Hub CLI that pulls Copilot interactions from Purview Audit and writes them to CSV for the Chat and Agent Intelligence reports." },
+      { "@type": "DefinedTerm", "name": "PBIT", "description": "A Power BI Template file — the .pbit format used by every Power BI report in the Analytics Hub. Opens in Power BI Desktop, prompts for parameters, then loads data." },
+      { "@type": "DefinedTerm", "name": "People Scientist", "description": "A Microsoft role that applies behavioural science to enterprise Copilot adoption, focused on the human side of measurement." },
+      { "@type": "DefinedTerm", "name": "Prompt Depth", "description": "A measure of how substantive a user's prompts are — length, follow-up turns, surface variety — surfaced in the Chat Intelligence Report." },
+      { "@type": "DefinedTerm", "name": "Purview Audit", "description": "Microsoft's unified audit log service, which records Copilot interactions and serves as the data source for PAX." },
+      { "@type": "DefinedTerm", "name": "Sentiment Score", "description": "A composite score derived from survey responses about Copilot, scaled 0–100, used in the Copilot Adoption & Sentiment Report." },
+      { "@type": "DefinedTerm", "name": "Super User", "description": "A licensed user whose Copilot behaviour places them in the top cohort by depth, frequency, and surface breadth — the population whose practices the Super User Impact and Decoding Super Usage reports model." },
+      { "@type": "DefinedTerm", "name": "Super User Impact", "description": "A Power BI template that quantifies the marginal value attributable to the super user cohort, used to defend license waves." },
+      { "@type": "DefinedTerm", "name": "Viva Insights Copilot Dashboard", "description": "Microsoft's native dashboard inside Viva Insights for Copilot adoption, behavioural change, and ROI — extended by several Analytics Hub reports." }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://github.com" />
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvfood6j5g");
+  </script>
+  <meta name="clarity-page" content="Glossary" />
+  <script src="../clarity-events.js" defer></script>
+  <link rel="stylesheet" href="../palette.css" />
+  <script src="../palette.js" defer></script>
+  <script src="../nudges.js" defer></script>
+  <script src="../copilot/widget.js" defer></script>
+  <style>
+    .gloss-hero { background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); padding: 60px 0 40px; border-bottom: 1px solid var(--border); }
+    .gloss-hero h1 { font-size: clamp(32px,4vw,46px); margin: 12px 0 14px; background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .gloss-hero .lede { font-size: 17px; color: var(--text-soft); max-width: 760px; margin: 0; }
+
+    .gloss-toolbar {
+      max-width: 960px; margin: 36px auto 18px;
+      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+    }
+    .gloss-search {
+      flex: 1; min-width: 240px;
+      padding: 12px 16px;
+      border: 1px solid var(--border); border-radius: 12px;
+      background: var(--surface); color: var(--text);
+      font-size: 15px;
+    }
+    .gloss-search:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+    .gloss-count { color: var(--text-muted); font-size: 14px; }
+
+    .gloss-az {
+      max-width: 960px; margin: 0 auto 24px;
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 12px 16px; border-radius: 12px;
+      background: var(--bg-alt);
+    }
+    .gloss-az a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 8px; text-decoration: none;
+      font-size: 13px; font-weight: 600;
+      color: var(--text-soft); background: var(--surface);
+    }
+    .gloss-az a:hover { background: var(--accent); color: #fff; }
+    .gloss-az a.is-disabled { opacity: .3; pointer-events: none; }
+
+    .gloss-list {
+      max-width: 960px; margin: 0 auto; padding-bottom: 80px;
+      display: grid; grid-template-columns: 1fr; gap: 12px;
+    }
+    .gloss-term {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 22px;
+      transition: border-color .15s ease;
+    }
+    .gloss-term:hover { border-color: var(--accent); }
+    .gloss-term h3 {
+      margin: 0 0 6px; font-size: 17px; color: var(--text);
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .gloss-term h3 .anchor {
+      color: var(--text-muted); font-size: 13px; font-weight: 400;
+      text-decoration: none; opacity: 0; transition: opacity .15s ease;
+    }
+    .gloss-term:hover h3 .anchor { opacity: 1; }
+    .gloss-term p { margin: 0; color: var(--text-soft); font-size: 14.5px; line-height: 1.6; }
+    .gloss-term.is-hidden { display: none; }
+
+    .gloss-empty {
+      max-width: 960px; margin: 40px auto;
+      padding: 30px; text-align: center;
+      color: var(--text-muted);
+      border: 1px dashed var(--border); border-radius: 14px;
+    }
+  </style>
+</head>
+<body>
+<a class="ah-skip" href="#top">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="brand-mark">🧠</span>
+      <span class="brand-name">Analytics Hub</span>
+      <span class="brand-by"><svg class="ms-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" aria-hidden="true" focusable="false"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M12 1h10v10H12z"/><path fill="#00A4EF" d="M1 12h10v10H12z"/><path fill="#FFB900" d="M12 12h10v10H12z"/></svg>by Microsoft</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="../">Home</a>
+      <a href="../find-a-tool/">Find a Report</a>
+      <a href="../out-of-the-box/">Native Reports</a>
+      <a href="../data-sources/">Data Sources</a>
+      <a href="../case-studies/">Case Studies</a>
+      <a href="../team/">Team</a>
+      <div class="nav-dropdown" data-open="false">
+        <button class="nav-dropdown-trigger" type="button" aria-current="page">Resources <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="../faq/" role="menuitem"><span class="menu-icon" aria-hidden="true">❓</span><span class="menu-text">FAQ<span class="menu-sub">Common questions answered</span></span></a>
+          <a href="../glossary/" role="menuitem" aria-current="page"><span class="menu-icon" aria-hidden="true">📖</span><span class="menu-text">Glossary<span class="menu-sub">Copilot reporting terms</span></span></a>
+          <a href="../compare/" role="menuitem"><span class="menu-icon" aria-hidden="true">⚖️</span><span class="menu-text">Compare Reports<span class="menu-sub">Side-by-side comparisons</span></span></a>
+          <a href="../feedback/" role="menuitem"><span class="menu-icon" aria-hidden="true">💬</span><span class="menu-text">Feedback<span class="menu-sub">Problem · suggestion · praise</span></span></a>
+        </div>
+      </div>
+      <a class="nav-cta" href="https://github.com/microsoft/Analytics-Hub" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="gloss-hero">
+    <div class="wrap">
+      <p class="eyebrow">Glossary</p>
+      <h1>Every Copilot reporting term — in plain English.</h1>
+      <p class="lede">
+        If you've ever had to translate "depth of use" or "super user cohort"
+        for an exec, this is for you. Bookmark it, send it to your team, and
+        we'll keep it current as Copilot evolves.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:40px">
+    <div class="gloss-toolbar">
+      <input id="gloss-q" type="search" class="gloss-search" placeholder="Search terms…" aria-label="Search glossary" />
+      <div class="gloss-count"><span id="gloss-shown">0</span> of <span id="gloss-total">0</span> terms</div>
+    </div>
+    <div class="gloss-az" id="gloss-az" role="navigation" aria-label="Jump to letter"></div>
+
+    <div id="gloss-list" class="gloss-list">
+
+      <article class="gloss-term" id="adoption" data-letter="A"><h3>Adoption <a href="#adoption" class="anchor" aria-label="Link to Adoption">#</a></h3><p>The percentage of licensed users who are actively using Copilot in a given period, typically measured weekly or monthly. The headline number on most executive Copilot dashboards.</p></article>
+
+      <article class="gloss-term" id="agent" data-letter="A"><h3>Agent (Copilot Agent) <a href="#agent" class="anchor" aria-label="Link">#</a></h3><p>A purpose-built Copilot extension — declarative, custom engine, or Studio-authored — that responds to a defined scope of prompts.</p></article>
+
+      <article class="gloss-term" id="agent-telemetry" data-letter="A"><h3>Agent Telemetry <a href="#agent-telemetry" class="anchor" aria-label="Link">#</a></h3><p>Usage data emitted by Copilot agents — invocations, authors, departments, outcomes — surfaced in the <a href="../find-a-tool/">Agent Intelligence Report</a>.</p></article>
+
+      <article class="gloss-term" id="ai-in-one" data-letter="A"><h3>AI-in-One Dashboard <a href="#ai-in-one" class="anchor" aria-label="Link">#</a></h3><p>The flagship executive Power BI report in the Analytics Hub that consolidates adoption, usage, depth, and sentiment into a single view.</p></article>
+
+      <article class="gloss-term" id="audit-reader" data-letter="A"><h3>Audit Reader <a href="#audit-reader" class="anchor" aria-label="Link">#</a></h3><p>A Microsoft 365 role that grants permission to search the Purview unified audit log. A prerequisite for running PAX.</p></article>
+
+      <article class="gloss-term" id="bva" data-letter="B"><h3>BVA (Business Value Advisor) <a href="#bva" class="anchor" aria-label="Link">#</a></h3><p>A Microsoft role focused on quantifying and articulating the business value of a customer's Microsoft investment, especially around Copilot ROI conversations.</p></article>
+
+      <article class="gloss-term" id="champion-id" data-letter="C"><h3>Champion ID <a href="#champion-id" class="anchor" aria-label="Link">#</a></h3><p>A workflow in the CustomizeCopilot toolkit that helps identify and onboard internal Copilot champions.</p></article>
+
+      <article class="gloss-term" id="chat-intelligence" data-letter="C"><h3>Chat Intelligence Report <a href="#chat-intelligence" class="anchor" aria-label="Link">#</a></h3><p>A Power BI template in the CopilotChatAnalytics repo that surfaces prompt-level chat patterns from Purview audit data.</p></article>
+
+      <article class="gloss-term" id="cohort" data-letter="C"><h3>Cohort <a href="#cohort" class="anchor" aria-label="Link">#</a></h3><p>A grouping of users by behaviour — active, recently active, dormant, super user — used to compare engagement across populations.</p></article>
+
+      <article class="gloss-term" id="copilot-sentiment" data-letter="C"><h3>Copilot Adoption &amp; Sentiment Report <a href="#copilot-sentiment" class="anchor" aria-label="Link">#</a></h3><p>A Power BI template that combines adoption telemetry with survey-based sentiment scores to explain <em>why</em> adoption is or isn't moving.</p></article>
+
+      <article class="gloss-term" id="csm" data-letter="C"><h3>CSM (Customer Success Manager) <a href="#csm" class="anchor" aria-label="Link">#</a></h3><p>A Microsoft role that owns the customer's outcomes against their Copilot deployment.</p></article>
+
+      <article class="gloss-term" id="custom-engine-agent" data-letter="C"><h3>Custom Engine Agent <a href="#custom-engine-agent" class="anchor" aria-label="Link">#</a></h3><p>A Copilot agent built on a custom orchestration layer rather than the declarative format. Surfaced separately in the Agent Intelligence Report because its telemetry shape differs from declarative agents.</p></article>
+
+      <article class="gloss-term" id="decoding-super" data-letter="D"><h3>Decoding Super Usage <a href="#decoding-super" class="anchor" aria-label="Link">#</a></h3><p>A Power BI template that breaks down what super users <em>do differently</em> — surfaces, prompt patterns, depth — so the behaviour can be replicated.</p></article>
+
+      <article class="gloss-term" id="declarative-agent" data-letter="D"><h3>Declarative Agent <a href="#declarative-agent" class="anchor" aria-label="Link">#</a></h3><p>A YAML-defined Copilot agent that runs on the standard Copilot orchestration. The most common agent type in enterprise deployments.</p></article>
+
+      <article class="gloss-term" id="depth-of-use" data-letter="D"><h3>Depth of Use <a href="#depth-of-use" class="anchor" aria-label="Link">#</a></h3><p>How many Copilot surfaces (Word, Excel, Teams, Outlook, Loop, etc.) an individual actively uses. A leading indicator of long-term retention — deeper users churn less.</p></article>
+
+      <article class="gloss-term" id="directquery" data-letter="D"><h3>DirectQuery <a href="#directquery" class="anchor" aria-label="Link">#</a></h3><p>A Power BI connection mode where queries run live against the source rather than against a cached import. Used by the DirectQuery variants of Decoding Super Usage for tenants that need near-real-time refresh.</p></article>
+
+      <article class="gloss-term" id="dormant-license" data-letter="D"><h3>Dormant License <a href="#dormant-license" class="anchor" aria-label="Link">#</a></h3><p>An assigned Copilot license that has shown no measurable usage over a defined period. A primary candidate for reclamation in license-defence conversations.</p></article>
+
+      <article class="gloss-term" id="license-utilization" data-letter="L"><h3>License Utilization <a href="#license-utilization" class="anchor" aria-label="Link">#</a></h3><p>Ratio of active users to assigned licenses for Microsoft 365 Copilot. The core defensibility metric for license renewal conversations with finance and procurement.</p></article>
+
+      <article class="gloss-term" id="m365-usage" data-letter="M"><h3>M365UsageAnalytics <a href="#m365-usage" class="anchor" aria-label="Link">#</a></h3><p>A Microsoft 365 Usage Analytics scaffold in the Analytics Hub that connects native M365 usage data to the broader Copilot reporting model.</p></article>
+
+      <article class="gloss-term" id="pax" data-letter="P"><h3>PAX <a href="#pax" class="anchor" aria-label="Link">#</a></h3><p>PowerShell Audit Exporter — the Analytics Hub CLI that pulls Copilot interactions from Purview Audit and writes them to CSV for the Chat and Agent Intelligence reports. Replaces manual <code>Search-UnifiedAuditLog</code> calls.</p></article>
+
+      <article class="gloss-term" id="pbit" data-letter="P"><h3>PBIT <a href="#pbit" class="anchor" aria-label="Link">#</a></h3><p>A Power BI Template file. The <code>.pbit</code> format used by every Power BI report in the Analytics Hub — opens in Power BI Desktop, prompts for parameters, then loads data.</p></article>
+
+      <article class="gloss-term" id="people-scientist" data-letter="P"><h3>People Scientist <a href="#people-scientist" class="anchor" aria-label="Link">#</a></h3><p>A Microsoft role that applies behavioural science to enterprise Copilot adoption — focused on the human side of measurement.</p></article>
+
+      <article class="gloss-term" id="prompt-depth" data-letter="P"><h3>Prompt Depth <a href="#prompt-depth" class="anchor" aria-label="Link">#</a></h3><p>A measure of how substantive a user's prompts are — length, follow-up turns, surface variety — surfaced in the Chat Intelligence Report.</p></article>
+
+      <article class="gloss-term" id="purview-audit" data-letter="P"><h3>Purview Audit <a href="#purview-audit" class="anchor" aria-label="Link">#</a></h3><p>Microsoft's unified audit log service. Records Copilot interactions and serves as the data source for PAX, which feeds Chat and Agent Intelligence reports.</p></article>
+
+      <article class="gloss-term" id="sentiment-score" data-letter="S"><h3>Sentiment Score <a href="#sentiment-score" class="anchor" aria-label="Link">#</a></h3><p>A composite score derived from survey responses about Copilot, scaled 0–100. Used in the Copilot Adoption &amp; Sentiment Report to explain adoption movement.</p></article>
+
+      <article class="gloss-term" id="super-user" data-letter="S"><h3>Super User <a href="#super-user" class="anchor" aria-label="Link">#</a></h3><p>A licensed user whose Copilot behaviour places them in the top cohort by depth, frequency, and surface breadth. The population whose practices the Super User Impact and Decoding Super Usage reports model and propagate.</p></article>
+
+      <article class="gloss-term" id="super-user-impact" data-letter="S"><h3>Super User Impact <a href="#super-user-impact" class="anchor" aria-label="Link">#</a></h3><p>A Power BI template that quantifies the marginal value attributable to the super user cohort. The most direct artifact for defending license waves in front of finance.</p></article>
+
+      <article class="gloss-term" id="viva-insights" data-letter="V"><h3>Viva Insights Copilot Dashboard <a href="#viva-insights" class="anchor" aria-label="Link">#</a></h3><p>Microsoft's native dashboard inside Viva Insights for Copilot adoption, behavioural change, and ROI. Extended by several Analytics Hub reports — see the <a href="../compare/">comparison page</a>.</p></article>
+
+    </div>
+
+    <div id="gloss-empty" class="gloss-empty" style="display:none">
+      No terms match that search. Try a different word, or <a href="../feedback/">suggest a term we should add</a>.
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-fine">
+      © Microsoft Corporation · MIT Licensed · <a href="../">Analytics Hub home</a> · <a href="../feedback/">Suggest a term</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const list = document.getElementById("gloss-list");
+  const items = Array.from(list.querySelectorAll(".gloss-term"));
+  const q = document.getElementById("gloss-q");
+  const shown = document.getElementById("gloss-shown");
+  const total = document.getElementById("gloss-total");
+  const empty = document.getElementById("gloss-empty");
+  const az = document.getElementById("gloss-az");
+
+  total.textContent = items.length;
+  shown.textContent = items.length;
+
+  // Build A-Z jumplist
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const present = new Set(items.map(i => i.dataset.letter));
+  letters.forEach(L => {
+    const first = items.find(i => i.dataset.letter === L);
+    const a = document.createElement("a");
+    a.textContent = L;
+    if (first) {
+      a.href = "#" + first.id;
+    } else {
+      a.className = "is-disabled";
+      a.href = "#";
+    }
+    az.appendChild(a);
+  });
+
+  function filter(){
+    const term = (q.value || "").trim().toLowerCase();
+    let n = 0;
+    items.forEach(it => {
+      const match = !term || it.textContent.toLowerCase().includes(term);
+      it.classList.toggle("is-hidden", !match);
+      if (match) n++;
+    });
+    shown.textContent = n;
+    empty.style.display = n ? "none" : "block";
+  }
+  q.addEventListener("input", filter);
+})();
+</script>
+
+</body>
+</html>
