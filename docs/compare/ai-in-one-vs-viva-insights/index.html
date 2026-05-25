@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="osCxYZt_4rM_dBEUcK15g-bl2Ny5g6I80gJlFZ6eKlY" />
+  <title>AI-in-One Dashboard vs. Viva Insights Copilot Dashboard — Comparison · Analytics Hub</title>
+  <meta name="description" content="Side-by-side comparison of the open-source AI-in-One Dashboard and Microsoft's native Viva Insights Copilot Dashboard — what each covers, licensing, data sources, and when to use which." />
+  <link rel="canonical" href="https://microsoft.github.io/Analytics-Hub/compare/ai-in-one-vs-viva-insights/" />
+  <meta name="theme-color" content="#0078d4" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="sitemap" type="application/xml" href="../../sitemap.xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://microsoft.github.io/Analytics-Hub/compare/ai-in-one-vs-viva-insights/" />
+  <meta property="og:title" content="AI-in-One Dashboard vs. Viva Insights Copilot Dashboard" />
+  <meta property="og:description" content="Native vs. open-source: which Copilot dashboard should you use, and when?" />
+  <meta property="og:image" content="https://microsoft.github.io/Analytics-Hub/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI-in-One Dashboard vs. Viva Insights Copilot Dashboard",
+    "description": "A side-by-side comparison of the open-source AI-in-One Dashboard and Microsoft's native Viva Insights Copilot Dashboard.",
+    "author": { "@type": "Organization", "name": "Microsoft Copilot ROI Advisory Team" },
+    "publisher": { "@type": "Organization", "name": "Microsoft" },
+    "datePublished": "2026-05-24",
+    "url": "https://microsoft.github.io/Analytics-Hub/compare/ai-in-one-vs-viva-insights/"
+  }
+  </script>
+  <link rel="stylesheet" href="../../styles.css" />
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvfood6j5g");
+  </script>
+  <meta name="clarity-page" content="Compare:AIInOne-vs-Viva" />
+  <script src="../../clarity-events.js" defer></script>
+  <link rel="stylesheet" href="../../palette.css" />
+  <script src="../../palette.js" defer></script>
+  <script src="../../nudges.js" defer></script>
+  <script src="../../copilot/widget.js" defer></script>
+  <style>
+    .cmp-hero { background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); padding: 50px 0 30px; border-bottom: 1px solid var(--border); }
+    .cmp-hero .crumbs { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+    .cmp-hero .crumbs a { color: var(--text-soft); }
+    .cmp-hero h1 { font-size: clamp(28px,3.5vw,40px); margin: 6px 0 14px; line-height: 1.2; }
+    .cmp-hero h1 span { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .cmp-hero .lede { font-size: 17px; color: var(--text-soft); max-width: 820px; margin: 0; }
+
+    .tldr {
+      max-width: 900px; margin: 40px auto 30px;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 5%, var(--surface)) 0%, var(--surface) 100%);
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 24px 28px;
+    }
+    .tldr h2 { margin: 0 0 12px; font-size: 18px; }
+    .tldr p { margin: 0; color: var(--text-soft); font-size: 15px; line-height: 1.6; }
+
+    .cmp-table-wrap { max-width: 1000px; margin: 0 auto; overflow-x: auto; padding: 0 16px; }
+    .cmp-table {
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      font-size: 14.5px;
+    }
+    .cmp-table th, .cmp-table td {
+      padding: 14px 18px; text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .cmp-table tr:last-child th, .cmp-table tr:last-child td { border-bottom: 0; }
+    .cmp-table thead th {
+      background: var(--bg-alt);
+      font-weight: 700; font-size: 15px;
+    }
+    .cmp-table tbody th {
+      width: 180px; color: var(--text-muted);
+      font-weight: 500; font-size: 13px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .cmp-table .yes { color: #107c10; font-weight: 600; }
+    .cmp-table .no  { color: #a4262c; font-weight: 600; }
+    .cmp-table .partial { color: #b97800; font-weight: 600; }
+
+    .body-section { max-width: 820px; margin: 50px auto; padding: 0 16px; }
+    .body-section h2 { font-size: 24px; margin: 0 0 14px; }
+    .body-section p { color: var(--text-soft); font-size: 15.5px; line-height: 1.7; margin: 0 0 14px; }
+    .body-section ul { color: var(--text-soft); font-size: 15.5px; line-height: 1.7; padding-left: 22px; }
+    .body-section ul li { margin-bottom: 6px; }
+
+    .when-cards {
+      max-width: 1000px; margin: 50px auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 0 16px;
+    }
+    @media (max-width: 720px) { .when-cards { grid-template-columns: 1fr; } }
+    .when-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px;
+    }
+    .when-card.left { border-left: 4px solid var(--accent); }
+    .when-card.right { border-left: 4px solid #8661c5; }
+    .when-card h3 { margin: 0 0 10px; font-size: 18px; }
+    .when-card ul { margin: 0; padding-left: 20px; color: var(--text-soft); font-size: 14.5px; line-height: 1.6; }
+
+    .next-strip {
+      max-width: 900px; margin: 50px auto 80px;
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; text-align: center;
+    }
+    .next-strip h2 { margin: 0 0 8px; font-size: 22px; }
+    .next-strip p { margin: 0 0 16px; color: var(--text-soft); }
+    .next-strip a {
+      display: inline-block; padding: 10px 18px; margin: 0 6px;
+      border-radius: 10px; font-weight: 600; font-size: 14px;
+      text-decoration: none;
+    }
+    .next-strip a.primary { background: var(--accent-grad); color: #fff !important; }
+    .next-strip a.ghost { background: var(--surface); color: var(--text) !important; border: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+<a class="ah-skip" href="#top">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">
+      <span class="brand-mark">🧠</span>
+      <span class="brand-name">Analytics Hub</span>
+      <span class="brand-by"><svg class="ms-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" aria-hidden="true" focusable="false"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M12 1h10v10H12z"/><path fill="#00A4EF" d="M1 12h10v10H12z"/><path fill="#FFB900" d="M12 12h10v10H12z"/></svg>by Microsoft</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="../../">Home</a>
+      <a href="../../find-a-tool/">Find a Report</a>
+      <a href="../../out-of-the-box/">Native Reports</a>
+      <a href="../../data-sources/">Data Sources</a>
+      <a href="../../case-studies/">Case Studies</a>
+      <a href="../../team/">Team</a>
+      <div class="nav-dropdown" data-open="false">
+        <button class="nav-dropdown-trigger" type="button" aria-current="page">Resources <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="../../faq/" role="menuitem"><span class="menu-icon" aria-hidden="true">❓</span><span class="menu-text">FAQ<span class="menu-sub">Common questions answered</span></span></a>
+          <a href="../../glossary/" role="menuitem"><span class="menu-icon" aria-hidden="true">📖</span><span class="menu-text">Glossary<span class="menu-sub">Copilot reporting terms</span></span></a>
+          <a href="../" role="menuitem" aria-current="page"><span class="menu-icon" aria-hidden="true">⚖️</span><span class="menu-text">Compare Reports<span class="menu-sub">Side-by-side comparisons</span></span></a>
+          <a href="../../feedback/" role="menuitem"><span class="menu-icon" aria-hidden="true">💬</span><span class="menu-text">Feedback<span class="menu-sub">Problem · suggestion · praise</span></span></a>
+        </div>
+      </div>
+      <a class="nav-cta" href="https://github.com/microsoft/Analytics-Hub" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="cmp-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="../../">Home</a> · <a href="../">Compare</a> · AI-in-One vs Viva Insights</div>
+      <p class="eyebrow">Native vs. open-source</p>
+      <h1><span>AI-in-One Dashboard</span> vs. <span>Viva Insights Copilot Dashboard</span></h1>
+      <p class="lede">
+        Microsoft ships a native Copilot dashboard inside Viva Insights. The same
+        Microsoft team that helps run the largest Copilot deployments also ships
+        an open-source extension called AI-in-One. Here's how they differ — and
+        why most enterprises end up using both.
+      </p>
+    </div>
+  </section>
+
+  <div class="tldr">
+    <h2>TL;DR</h2>
+    <p>
+      <strong>Viva Insights Copilot Dashboard</strong> is the fastest path if you already
+      have a Viva license — zero deployment, refreshed automatically, focused on
+      adoption and behavioural-change KPIs. <strong>AI-in-One</strong> is the open-source
+      Power BI report you reach for when you need to <em>combine</em> Viva data with
+      Purview audit logs, agent telemetry, sentiment surveys, or admin center
+      exports — or when you simply don't have Viva and need the same answers.
+      Both are built by the same Microsoft team.
+    </p>
+  </div>
+
+  <div class="cmp-table-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Viva Insights Copilot Dashboard</th>
+          <th>AI-in-One Dashboard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Built by</th><td>Microsoft (in-product)</td><td>Microsoft Copilot ROI Advisory Team (open source)</td></tr>
+        <tr><th>License required</th><td>Viva Insights (paid)</td><td class="yes">Free · MIT</td></tr>
+        <tr><th>Setup time</th><td class="yes">Zero — already there</td><td>~30 min (Power BI Desktop + parameters)</td></tr>
+        <tr><th>Refresh</th><td class="yes">Automatic</td><td>Manual or scheduled in Power BI Service</td></tr>
+        <tr><th>Adoption metrics</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+        <tr><th>Behavioural change KPIs</th><td class="yes">Yes (proprietary Viva metrics)</td><td class="partial">Subset (when Viva data is loaded)</td></tr>
+        <tr><th>Prompt-level data</th><td class="no">No</td><td class="partial">Via Chat Intelligence Report companion</td></tr>
+        <tr><th>Agent telemetry</th><td class="no">No</td><td class="partial">Via Agent Intelligence Report companion</td></tr>
+        <tr><th>License utilization view</th><td class="partial">High-level</td><td class="yes">Cohort-level, dormant-license reclamation</td></tr>
+        <tr><th>Sentiment overlay</th><td class="no">No</td><td class="yes">Via Copilot Adoption &amp; Sentiment Report companion</td></tr>
+        <tr><th>Tenant data sovereignty</th><td>In tenant (Viva)</td><td class="yes">In tenant (local .pbit, you control refresh)</td></tr>
+        <tr><th>Customizable visuals</th><td class="partial">Limited</td><td class="yes">Full Power BI Desktop editing</td></tr>
+        <tr><th>Works without Viva</th><td class="no">No</td><td class="yes">Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section class="body-section">
+    <h2>What Viva Insights gives you out of the box</h2>
+    <p>Viva Insights includes a Copilot dashboard that's been built and refined by Microsoft's behavioural-science team. It's the right starting point when:</p>
+    <ul>
+      <li>You already pay for Viva Insights and want immediate visibility with no deployment effort.</li>
+      <li>The audience is line-of-business leadership and you need polished, prescribed KPIs rather than raw flexibility.</li>
+      <li>The questions are mostly "<em>is adoption moving?</em>" and "<em>are behaviours changing?</em>".</li>
+    </ul>
+    <h2>What AI-in-One adds</h2>
+    <p>AI-in-One is open source and Power BI–based, so you own the data model. It's the right tool when:</p>
+    <ul>
+      <li>You need to <strong>combine</strong> Viva data with Purview audit logs, agent telemetry, sentiment surveys, or admin center exports in a single report.</li>
+      <li>Finance or procurement is asking license-defence questions and you need <strong>cohort-level utilization</strong> rather than aggregate adoption.</li>
+      <li>You don't have Viva and need the same visibility from data you already own.</li>
+      <li>Your team wants to <strong>edit and rebrand</strong> the visuals or extend the model with internal data sources.</li>
+    </ul>
+  </section>
+
+  <div class="when-cards">
+    <div class="when-card left">
+      <h3>Use Viva Insights Copilot Dashboard if…</h3>
+      <ul>
+        <li>You already have a Viva license</li>
+        <li>You need answers today, with zero setup</li>
+        <li>Your audience prefers prescribed KPIs</li>
+        <li>Your questions stop at "is adoption moving?"</li>
+      </ul>
+    </div>
+    <div class="when-card right">
+      <h3>Use AI-in-One if…</h3>
+      <ul>
+        <li>You don't have Viva — or want to extend it</li>
+        <li>You need to combine multiple data sources</li>
+        <li>Finance wants cohort-level license defence</li>
+        <li>You want to own and customize the model</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="next-strip">
+    <h2>Most teams run both.</h2>
+    <p>Viva for the at-a-glance executive view, AI-in-One for the deep dive your analysts and CFO ask for.</p>
+    <a href="../../find-a-tool/" class="primary">Get AI-in-One →</a>
+    <a href="../../out-of-the-box/" class="ghost">See native Microsoft reports</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-fine">
+      © Microsoft Corporation · MIT Licensed · <a href="../../">Analytics Hub home</a> · <a href="../../feedback/">Send feedback</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

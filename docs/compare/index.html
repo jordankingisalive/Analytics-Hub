@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="osCxYZt_4rM_dBEUcK15g-bl2Ny5g6I80gJlFZ6eKlY" />
+  <title>Compare Copilot Reporting Tools · Analytics Hub</title>
+  <meta name="description" content="Side-by-side comparisons of Microsoft Copilot reporting tools — AI-in-One vs Viva Insights, Chat Intelligence vs Agent Intelligence, Super User Impact vs Decoding Super Usage." />
+  <link rel="canonical" href="https://microsoft.github.io/Analytics-Hub/compare/" />
+  <meta name="theme-color" content="#0078d4" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../favicon.svg" />
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://microsoft.github.io/Analytics-Hub/compare/" />
+  <meta property="og:title" content="Compare Copilot Reporting Tools · Analytics Hub" />
+  <meta property="og:description" content="Side-by-side comparisons of Microsoft Copilot reporting tools." />
+  <meta property="og:image" content="https://microsoft.github.io/Analytics-Hub/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="stylesheet" href="../styles.css" />
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvfood6j5g");
+  </script>
+  <meta name="clarity-page" content="Compare" />
+  <script src="../clarity-events.js" defer></script>
+  <link rel="stylesheet" href="../palette.css" />
+  <script src="../palette.js" defer></script>
+  <script src="../nudges.js" defer></script>
+  <script src="../copilot/widget.js" defer></script>
+  <style>
+    .cmp-hero { background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); padding: 60px 0 40px; border-bottom: 1px solid var(--border); }
+    .cmp-hero h1 { font-size: clamp(32px,4vw,46px); margin: 12px 0 14px; background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .cmp-hero .lede { font-size: 17px; color: var(--text-soft); max-width: 760px; margin: 0; }
+
+    .cmp-grid {
+      max-width: 1100px; margin: 50px auto 80px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+    }
+    .cmp-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 26px;
+      display: flex; flex-direction: column;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+    .cmp-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .cmp-card .versus {
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+    .cmp-card h2 { margin: 0 0 10px; font-size: 22px; line-height: 1.25; }
+    .cmp-card p { color: var(--text-soft); font-size: 14.5px; line-height: 1.55; margin: 0 0 18px; flex: 1; }
+    .cmp-card a.cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      align-self: flex-start;
+      padding: 10px 16px; border-radius: 10px;
+      background: var(--accent-grad); color: #fff !important;
+      text-decoration: none; font-weight: 600; font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<a class="ah-skip" href="#top">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="brand-mark">🧠</span>
+      <span class="brand-name">Analytics Hub</span>
+      <span class="brand-by"><svg class="ms-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" aria-hidden="true" focusable="false"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M12 1h10v10H12z"/><path fill="#00A4EF" d="M1 12h10v10H12z"/><path fill="#FFB900" d="M12 12h10v10H12z"/></svg>by Microsoft</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="../">Home</a>
+      <a href="../find-a-tool/">Find a Report</a>
+      <a href="../out-of-the-box/">Native Reports</a>
+      <a href="../data-sources/">Data Sources</a>
+      <a href="../case-studies/">Case Studies</a>
+      <a href="../team/">Team</a>
+      <div class="nav-dropdown" data-open="false">
+        <button class="nav-dropdown-trigger" type="button" aria-current="page">Resources <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="../faq/" role="menuitem"><span class="menu-icon" aria-hidden="true">❓</span><span class="menu-text">FAQ<span class="menu-sub">Common questions answered</span></span></a>
+          <a href="../glossary/" role="menuitem"><span class="menu-icon" aria-hidden="true">📖</span><span class="menu-text">Glossary<span class="menu-sub">Copilot reporting terms</span></span></a>
+          <a href="../compare/" role="menuitem" aria-current="page"><span class="menu-icon" aria-hidden="true">⚖️</span><span class="menu-text">Compare Reports<span class="menu-sub">Side-by-side comparisons</span></span></a>
+          <a href="../feedback/" role="menuitem"><span class="menu-icon" aria-hidden="true">💬</span><span class="menu-text">Feedback<span class="menu-sub">Problem · suggestion · praise</span></span></a>
+        </div>
+      </div>
+      <a class="nav-cta" href="https://github.com/microsoft/Analytics-Hub" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="cmp-hero">
+    <div class="wrap">
+      <p class="eyebrow">Compare reports</p>
+      <h1>Which Copilot report should I use?</h1>
+      <p class="lede">
+        Most teams know they need <em>some</em> Copilot reporting — the question
+        is which one. These side-by-side comparisons cover the questions we hear
+        most: native vs. open-source, prompt-level vs. agent-level, super user
+        identification vs. super user behaviour modelling.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cmp-grid">
+
+      <article class="cmp-card">
+        <div class="versus">Native vs. open-source</div>
+        <h2>AI-in-One Dashboard vs. Viva Insights Copilot Dashboard</h2>
+        <p>What the native Microsoft dashboard covers, what the open-source AI-in-One adds, and which one you should reach for first depending on whether you have a Viva license.</p>
+        <a class="cta" href="./ai-in-one-vs-viva-insights/">Compare →</a>
+      </article>
+
+      <article class="cmp-card">
+        <div class="versus">Prompt-level vs. agent-level</div>
+        <h2>Chat Intelligence Report vs. Agent Intelligence Report</h2>
+        <p>Both run on Purview audit data. One surfaces human chat patterns; the other surfaces what your declarative and custom agents are doing. Most enterprises run both.</p>
+        <a class="cta" href="./chat-intelligence-vs-agent-intelligence/">Compare →</a>
+      </article>
+
+      <article class="cmp-card" style="opacity:.65">
+        <div class="versus">Coming soon</div>
+        <h2>Super User Impact vs. Decoding Super Usage</h2>
+        <p>One identifies who your super users are and quantifies their marginal value. The other models <em>what they do differently</em> so the behaviour can be replicated. We're writing this comparison now.</p>
+        <a class="cta" href="../feedback/" style="background:var(--surface-2); color:var(--text) !important; border:1px solid var(--border)">Request priority →</a>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-fine">
+      © Microsoft Corporation · MIT Licensed · <a href="../">Analytics Hub home</a> · <a href="../feedback/">Suggest a comparison</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

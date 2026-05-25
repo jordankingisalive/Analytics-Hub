@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="osCxYZt_4rM_dBEUcK15g-bl2Ny5g6I80gJlFZ6eKlY" />
+  <title>Chat Intelligence vs. Agent Intelligence Report — Comparison · Analytics Hub</title>
+  <meta name="description" content="Side-by-side comparison of the Chat Intelligence Report and Agent Intelligence Report — what each surfaces from Purview audit data, what they share, and when to run both." />
+  <link rel="canonical" href="https://microsoft.github.io/Analytics-Hub/compare/chat-intelligence-vs-agent-intelligence/" />
+  <meta name="theme-color" content="#0078d4" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="sitemap" type="application/xml" href="../../sitemap.xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://microsoft.github.io/Analytics-Hub/compare/chat-intelligence-vs-agent-intelligence/" />
+  <meta property="og:title" content="Chat Intelligence vs. Agent Intelligence Report" />
+  <meta property="og:description" content="Prompt-level vs. agent-level Copilot reporting — when to use which." />
+  <meta property="og:image" content="https://microsoft.github.io/Analytics-Hub/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Chat Intelligence vs. Agent Intelligence Report",
+    "description": "Side-by-side comparison of the Chat Intelligence Report and Agent Intelligence Report.",
+    "author": { "@type": "Organization", "name": "Microsoft Copilot ROI Advisory Team" },
+    "publisher": { "@type": "Organization", "name": "Microsoft" },
+    "datePublished": "2026-05-24",
+    "url": "https://microsoft.github.io/Analytics-Hub/compare/chat-intelligence-vs-agent-intelligence/"
+  }
+  </script>
+  <link rel="stylesheet" href="../../styles.css" />
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvfood6j5g");
+  </script>
+  <meta name="clarity-page" content="Compare:Chat-vs-Agent" />
+  <script src="../../clarity-events.js" defer></script>
+  <link rel="stylesheet" href="../../palette.css" />
+  <script src="../../palette.js" defer></script>
+  <script src="../../nudges.js" defer></script>
+  <script src="../../copilot/widget.js" defer></script>
+  <link rel="stylesheet" href="../ai-in-one-vs-viva-insights/index.html" disabled />
+  <style>
+    /* Reuse styles from sibling — duplicated for self-contained page */
+    .cmp-hero { background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); padding: 50px 0 30px; border-bottom: 1px solid var(--border); }
+    .cmp-hero .crumbs { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+    .cmp-hero .crumbs a { color: var(--text-soft); }
+    .cmp-hero h1 { font-size: clamp(28px,3.5vw,40px); margin: 6px 0 14px; line-height: 1.2; }
+    .cmp-hero h1 span { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .cmp-hero .lede { font-size: 17px; color: var(--text-soft); max-width: 820px; margin: 0; }
+    .tldr { max-width: 900px; margin: 40px auto 30px; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 5%, var(--surface)) 0%, var(--surface) 100%); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
+    .tldr h2 { margin: 0 0 12px; font-size: 18px; }
+    .tldr p { margin: 0; color: var(--text-soft); font-size: 15px; line-height: 1.6; }
+    .cmp-table-wrap { max-width: 1000px; margin: 0 auto; overflow-x: auto; padding: 0 16px; }
+    .cmp-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-size: 14.5px; }
+    .cmp-table th, .cmp-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .cmp-table tr:last-child th, .cmp-table tr:last-child td { border-bottom: 0; }
+    .cmp-table thead th { background: var(--bg-alt); font-weight: 700; font-size: 15px; }
+    .cmp-table tbody th { width: 180px; color: var(--text-muted); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+    .cmp-table .yes { color: #107c10; font-weight: 600; }
+    .cmp-table .no  { color: #a4262c; font-weight: 600; }
+    .cmp-table .partial { color: #b97800; font-weight: 600; }
+    .body-section { max-width: 820px; margin: 50px auto; padding: 0 16px; }
+    .body-section h2 { font-size: 24px; margin: 0 0 14px; }
+    .body-section p { color: var(--text-soft); font-size: 15.5px; line-height: 1.7; margin: 0 0 14px; }
+    .body-section ul { color: var(--text-soft); font-size: 15.5px; line-height: 1.7; padding-left: 22px; }
+    .body-section ul li { margin-bottom: 6px; }
+    .when-cards { max-width: 1000px; margin: 50px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 0 16px; }
+    @media (max-width: 720px) { .when-cards { grid-template-columns: 1fr; } }
+    .when-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .when-card.left { border-left: 4px solid var(--accent); }
+    .when-card.right { border-left: 4px solid #8661c5; }
+    .when-card h3 { margin: 0 0 10px; font-size: 18px; }
+    .when-card ul { margin: 0; padding-left: 20px; color: var(--text-soft); font-size: 14.5px; line-height: 1.6; }
+    .next-strip { max-width: 900px; margin: 50px auto 80px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 16px; padding: 28px; text-align: center; }
+    .next-strip h2 { margin: 0 0 8px; font-size: 22px; }
+    .next-strip p { margin: 0 0 16px; color: var(--text-soft); }
+    .next-strip a { display: inline-block; padding: 10px 18px; margin: 0 6px; border-radius: 10px; font-weight: 600; font-size: 14px; text-decoration: none; }
+    .next-strip a.primary { background: var(--accent-grad); color: #fff !important; }
+    .next-strip a.ghost { background: var(--surface); color: var(--text) !important; border: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+<a class="ah-skip" href="#top">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">
+      <span class="brand-mark">🧠</span>
+      <span class="brand-name">Analytics Hub</span>
+      <span class="brand-by"><svg class="ms-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" aria-hidden="true" focusable="false"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M12 1h10v10H12z"/><path fill="#00A4EF" d="M1 12h10v10H12z"/><path fill="#FFB900" d="M12 12h10v10H12z"/></svg>by Microsoft</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="../../">Home</a>
+      <a href="../../find-a-tool/">Find a Report</a>
+      <a href="../../out-of-the-box/">Native Reports</a>
+      <a href="../../data-sources/">Data Sources</a>
+      <a href="../../case-studies/">Case Studies</a>
+      <a href="../../team/">Team</a>
+      <div class="nav-dropdown" data-open="false">
+        <button class="nav-dropdown-trigger" type="button" aria-current="page">Resources <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="../../faq/" role="menuitem"><span class="menu-icon" aria-hidden="true">❓</span><span class="menu-text">FAQ<span class="menu-sub">Common questions answered</span></span></a>
+          <a href="../../glossary/" role="menuitem"><span class="menu-icon" aria-hidden="true">📖</span><span class="menu-text">Glossary<span class="menu-sub">Copilot reporting terms</span></span></a>
+          <a href="../" role="menuitem" aria-current="page"><span class="menu-icon" aria-hidden="true">⚖️</span><span class="menu-text">Compare Reports<span class="menu-sub">Side-by-side comparisons</span></span></a>
+          <a href="../../feedback/" role="menuitem"><span class="menu-icon" aria-hidden="true">💬</span><span class="menu-text">Feedback<span class="menu-sub">Problem · suggestion · praise</span></span></a>
+        </div>
+      </div>
+      <a class="nav-cta" href="https://github.com/microsoft/Analytics-Hub" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="cmp-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="../../">Home</a> · <a href="../">Compare</a> · Chat vs Agent Intelligence</div>
+      <p class="eyebrow">Prompt-level vs. agent-level</p>
+      <h1><span>Chat Intelligence Report</span> vs. <span>Agent Intelligence Report</span></h1>
+      <p class="lede">
+        Both run on Purview audit data. Both ship as Power BI templates in the
+        CopilotChatAnalytics repo. Chat Intelligence shows you what <em>humans</em>
+        are doing with Copilot. Agent Intelligence shows you what your
+        <em>declarative and custom agents</em> are doing. Most enterprises run both.
+      </p>
+    </div>
+  </section>
+
+  <div class="tldr">
+    <h2>TL;DR</h2>
+    <p>
+      Run <strong>Chat Intelligence</strong> when the question is about user prompt patterns,
+      depth, surface usage, and adoption-by-prompt-behaviour. Run <strong>Agent Intelligence</strong>
+      when the question is about what agents are getting invoked, by whom, in
+      which departments, and with what outcomes. They share PAX as the upstream
+      data extractor, so if you've configured one, the second is a fast add.
+    </p>
+  </div>
+
+  <div class="cmp-table-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Chat Intelligence Report</th>
+          <th>Agent Intelligence Report</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Primary subject</th><td>Human Copilot prompts</td><td>Agent invocations</td></tr>
+        <tr><th>Repo</th><td>CopilotChatAnalytics</td><td>CopilotChatAnalytics</td></tr>
+        <tr><th>Format</th><td>Power BI <code>.pbit</code></td><td>Power BI <code>.pbit</code></td></tr>
+        <tr><th>License</th><td class="yes">Free · MIT</td><td class="yes">Free · MIT</td></tr>
+        <tr><th>Data source</th><td>Purview Audit (via PAX)</td><td>Purview Audit (via PAX)</td></tr>
+        <tr><th>Setup time</th><td>~45 min once PAX is configured</td><td>~30 min once PAX is configured</td></tr>
+        <tr><th>Prompts shown</th><td class="yes">Yes — prompt text, length, turn count</td><td class="no">No (out of scope)</td></tr>
+        <tr><th>Surface breakdown</th><td class="yes">Word, Excel, Teams, Outlook, etc.</td><td class="partial">By agent surface</td></tr>
+        <tr><th>Agent invocations</th><td class="no">Out of scope</td><td class="yes">Yes — declarative, custom engine, Studio</td></tr>
+        <tr><th>Agent author breakdown</th><td class="no">No</td><td class="yes">Yes</td></tr>
+        <tr><th>Department breakdown</th><td class="yes">Via AD/Entra attribute join</td><td class="yes">Via AD/Entra attribute join</td></tr>
+        <tr><th>Outcome / success signal</th><td class="partial">Inferred from follow-up turns</td><td class="yes">Agent-emitted outcome where available</td></tr>
+        <tr><th>Companion to AI-in-One</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section class="body-section">
+    <h2>What Chat Intelligence answers</h2>
+    <ul>
+      <li>What surfaces are people using Copilot in (Word, Excel, Teams, Outlook, Loop)?</li>
+      <li>How deep are their prompts — single turns or multi-turn conversations?</li>
+      <li>Which departments are prompting most, and at what depth?</li>
+      <li>Is prompt behaviour maturing month over month?</li>
+    </ul>
+    <h2>What Agent Intelligence answers</h2>
+    <ul>
+      <li>Which agents are getting invoked, and by whom?</li>
+      <li>Which agents are <em>shipped but unused</em> — candidates for sunset?</li>
+      <li>Which authors and departments are driving agent adoption?</li>
+      <li>How are declarative agents performing vs. custom engine agents?</li>
+    </ul>
+    <h2>Why most teams run both</h2>
+    <p>
+      Chat tells you about the human in front of Copilot. Agent tells you about
+      the orchestration layer your team built around them. Together they answer
+      "<em>is our Copilot investment being used by people <strong>and</strong> by the agents
+      our team built on top of it</em>" — which is the question leadership is
+      actually asking.
+    </p>
+    <p>
+      Because both pull from PAX, you only pay the setup cost once. After PAX
+      is configured against Purview Audit, both <code>.pbit</code> files can refresh on
+      the same schedule.
+    </p>
+  </section>
+
+  <div class="when-cards">
+    <div class="when-card left">
+      <h3>Run Chat Intelligence if…</h3>
+      <ul>
+        <li>The question is about <em>people</em>, not agents</li>
+        <li>You need prompt-level visibility</li>
+        <li>You want surface-level depth analytics</li>
+        <li>You're building a Copilot maturity model</li>
+      </ul>
+    </div>
+    <div class="when-card right">
+      <h3>Run Agent Intelligence if…</h3>
+      <ul>
+        <li>Your team has shipped declarative or custom agents</li>
+        <li>You need to defend (or sunset) agent investments</li>
+        <li>Leadership wants per-author / per-department breakdowns</li>
+        <li>You're evaluating Copilot Studio agent ROI</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="next-strip">
+    <h2>Both report on the same PAX export.</h2>
+    <p>Configure PAX once, run both <code>.pbit</code> templates against the same dataset.</p>
+    <a href="../../find-a-tool/" class="primary">Find both reports →</a>
+    <a href="../../glossary/#pax" class="ghost">What is PAX?</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-fine">
+      © Microsoft Corporation · MIT Licensed · <a href="../../">Analytics Hub home</a> · <a href="../../feedback/">Send feedback</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
