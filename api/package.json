@@ -1,0 +1,15 @@
+{
+  "name": "analytics-hub-copilot-proxy",
+  "version": "1.0.0",
+  "description": "Azure Function proxy for the Analytics Hub Copilot widget. Forwards chat completions to Azure OpenAI with a server-side key, CORS allowlist, and per-IP rate limiting.",
+  "main": "src/{index.js,functions/*.js}",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName":         { "value": "${AZURE_ENV_NAME}" },
+    "location":                { "value": "${AZURE_LOCATION}" },
+    "aoaiApiVersion":          { "value": "${AOAI_API_VERSION=2024-10-21}" },
+    "aoaiModelName":           { "value": "${AOAI_MODEL_NAME=gpt-5-mini}" },
+    "aoaiModelVersion":        { "value": "${AOAI_MODEL_VERSION=2025-08-07}" },
+    "aoaiDeploymentCapacity":  { "value": "${AOAI_DEPLOYMENT_CAPACITY=50}" },
+    "allowedOrigins":          { "value": "${ALLOWED_ORIGINS=https://microsoft.github.io,https://jordankingisalive.github.io}" },
+    "rateLimitPerHour":        { "value": "${RATE_LIMIT_PER_HOUR=15}" },
+    "maxTokens":               { "value": "${MAX_TOKENS=800}" }
+  }
+}

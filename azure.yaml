@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+name: analytics-hub-copilot-proxy
+metadata:
+  template: analytics-hub-copilot-proxy@1.0.0
+services:
+  api:
+    project: ./api
+    language: js
+    host: function
+hooks:
+  postprovision:
+    windows:
+      shell: pwsh
+      run: |
+        Write-Host ""
+        Write-Host "=== Deployment complete ===" -ForegroundColor Green
+        Write-Host "Chat endpoint: $env:FUNCTION_CHAT_ENDPOINT" -ForegroundColor Cyan
+        Write-Host ""
+        Write-Host "Next step: paste this into docs/copilot/config.json:" -ForegroundColor Yellow
+        Write-Host "  { `"proxyUrl`": `"$env:FUNCTION_CHAT_ENDPOINT`" }" -ForegroundColor Yellow
+        Write-Host ""
+    posix:
+      shell: sh
+      run: |
+        echo ""
+        echo "=== Deployment complete ==="
+        echo "Chat endpoint: $FUNCTION_CHAT_ENDPOINT"
+        echo ""
+        echo "Next step: paste this into docs/copilot/config.json:"
+        echo "  { \"proxyUrl\": \"$FUNCTION_CHAT_ENDPOINT\" }"
+        echo ""
