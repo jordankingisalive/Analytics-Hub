@@ -142,9 +142,9 @@ const TOOLS = [
     accent: "#0078d4",
     source: "Viva Insights (via Super Usage Heatmap CSV)",
     sourceKey: "Viva Insights",
-    repo: "https://github.com/jordankingisalive/CopilotROICalculator",
+    repo: "https://jordankingisalive.github.io/CopilotROICalculator/",
     download: "https://github.com/jordankingisalive/CopilotROICalculator/archive/refs/heads/main.zip",
-    blurb: "Browser-only ROI modeler. Drop in the heatmap CSV exported from Super Usage Adoption (which itself runs on Viva Insights), sweep assumptions, generate a defensible value story — zero install, no Power BI.",
+    blurb: "Browser-only ROI modeler — runs entirely in the browser. Drop in the heatmap CSV exported from Super Usage Adoption (which itself runs on Viva Insights), sweep assumptions, generate a defensible value story — zero install, no Power BI. Open the live site to use it.",
     meta: { audience: "BVAs, finance partners, exec sponsors", license: "None for the calc — upstream needs Viva Insights", time: "~10 min once heatmap CSV is in hand" },
   },
   {
