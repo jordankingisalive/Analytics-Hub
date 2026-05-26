@@ -541,19 +541,61 @@
 
 /* Category section headers inside the table */
 .cat-header td {
-  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--surface) 100%);
+  --cat-c1: #6b7280;
+  --cat-c2: #9ca3af;
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--cat-c1) 22%, var(--surface)) 0%,
+      color-mix(in srgb, var(--cat-c2) 10%, var(--surface)) 45%,
+      var(--surface) 100%);
   border-top: 2px solid var(--border-strong);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid color-mix(in srgb, var(--cat-c1) 30%, var(--border));
+  border-left: 4px solid var(--cat-c1);
   padding: 1rem 1.25rem .75rem;
+  position: relative;
+  transition: background .25s ease;
 }
 .cat-header:first-child td { border-top: 0; }
+.cat-header[data-cat="usage-intelligence"] td {
+  --cat-c1: #8661c5; --cat-c2: #b794f4;
+}
+.cat-header[data-cat="adoption-behavior"] td {
+  --cat-c1: #00B294; --cat-c2: #5ee3c8;
+}
+.cat-header[data-cat="readiness-roi"] td {
+  --cat-c1: #e3008c; --cat-c2: #ff7ab8;
+}
+.cat-header[data-cat="developer"] td {
+  --cat-c1: #0078d4; --cat-c2: #5fb4ff;
+}
+.cat-header[data-cat="tooling-extension"] td {
+  --cat-c1: #ffaa44; --cat-c2: #ffd28a;
+}
+.cat-header .cat-label { color: color-mix(in srgb, var(--cat-c1) 80%, var(--text)); }
+.cat-header .cat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem; height: 2rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--cat-c1) 18%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--cat-c1) 35%, transparent);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--cat-c1) 20%, transparent);
+}
+.cat-header .cat-count {
+  background: color-mix(in srgb, var(--cat-c1) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--cat-c1) 35%, var(--border));
+  color: color-mix(in srgb, var(--cat-c1) 70%, var(--text));
+}
 .cat-header-inner {
   display: flex;
   align-items: baseline;
   gap: .65rem;
   flex-wrap: wrap;
 }
-.cat-icon { font-size: 1.15rem; }
+.cat-icon {
+  font-size: 1.15rem;
+}
 .cat-label {
   font-size: 1.02rem;
   font-weight: 700;
