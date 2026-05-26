@@ -52,7 +52,7 @@ REPOS: list[str] = [
 #
 # Each entry: label -> (project_id_for_display, env_var_name_holding_token)
 CLARITY_SITES: dict[str, tuple[str, str]] = {
-    "analytics-hub": ("wvfood6j5g", "CLARITY_TOKEN_HUB"),
+    "analytics-hub": ("wxb0r23ozh", "CLARITY_TOKEN_HUB"),
     "jordan-homepage": ("wt5uwqabv0", "CLARITY_TOKEN_PERSONAL"),
 }
 
