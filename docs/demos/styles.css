@@ -115,6 +115,49 @@
   border: 0;
 }
 
+/* Fullscreen toggle button — top-right overlay on the iframe wrap */
+.demo-fs-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(15, 17, 22, .78);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .18);
+  font: 500 12px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background .12s ease, border-color .12s ease, transform .08s ease;
+}
+.demo-fs-toggle:hover { background: rgba(0, 120, 212, .92); border-color: rgba(255,255,255,.35); }
+.demo-fs-toggle:active { transform: translateY(1px); }
+.demo-fs-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.demo-fs-icon-exit { display: none; }
+.demo-stage-grid .demo-frame-wrap:fullscreen,
+.demo-stage-grid .demo-frame-wrap:-webkit-full-screen {
+  background: #0b0b0b;
+  border-radius: 0;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+}
+.demo-stage-grid .demo-frame-wrap:fullscreen iframe,
+.demo-stage-grid .demo-frame-wrap:-webkit-full-screen iframe {
+  width: 100vw;
+  height: 100vh;
+}
+.demo-stage-grid .demo-frame-wrap:fullscreen .demo-fs-icon-enter,
+.demo-stage-grid .demo-frame-wrap:-webkit-full-screen .demo-fs-icon-enter { display: none; }
+.demo-stage-grid .demo-frame-wrap:fullscreen .demo-fs-icon-exit,
+.demo-stage-grid .demo-frame-wrap:-webkit-full-screen .demo-fs-icon-exit { display: inline-block; }
+
 /* Horizontal related-resources strip — sits ABOVE the iframe */
 .demo-rail {
   display: flex;

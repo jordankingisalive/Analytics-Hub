@@ -164,6 +164,11 @@
 
       <div class="demo-stage-grid">
         <div class="demo-frame-wrap" id="demo-frame-wrap">
+          <button type="button" id="demo-fs-toggle" class="demo-fs-toggle" aria-label="Enter full screen" title="Full screen (Esc to exit)">
+            <svg class="demo-fs-icon-enter" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+            <svg class="demo-fs-icon-exit"  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+            <span class="demo-fs-label">Full screen</span>
+          </button>
           <iframe id="demo-iframe" title="Report demo" height="720" frameborder="0" allowfullscreen allow="clipboard-write; fullscreen" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -238,6 +243,29 @@
   const railList  = document.getElementById("demo-rail-list");
   const railSource = document.getElementById("demo-rail-source");
   const railRelatedList = document.getElementById("demo-rail-related-list");
+
+  // Fullscreen toggle for the iframe wrap
+  const fsToggle = document.getElementById("demo-fs-toggle");
+  const fsLabel  = fsToggle ? fsToggle.querySelector(".demo-fs-label") : null;
+  if (fsToggle && wrap) {
+    fsToggle.addEventListener("click", () => {
+      const inFs = document.fullscreenElement === wrap || document.webkitFullscreenElement === wrap;
+      try {
+        if (inFs) {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        } else {
+          (wrap.requestFullscreen || wrap.webkitRequestFullscreen).call(wrap);
+        }
+      } catch (_) { /* no-op */ }
+    });
+    const syncFsLabel = () => {
+      const inFs = document.fullscreenElement === wrap || document.webkitFullscreenElement === wrap;
+      if (fsLabel) fsLabel.textContent = inFs ? "Exit full screen" : "Full screen";
+      fsToggle.setAttribute("aria-label", inFs ? "Exit full screen" : "Enter full screen");
+    };
+    document.addEventListener("fullscreenchange", syncFsLabel);
+    document.addEventListener("webkitfullscreenchange", syncFsLabel);
+  }
 
   const KIND_ICON = {
     doc:         "📖",
