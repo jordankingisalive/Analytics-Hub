@@ -95,6 +95,10 @@
 
 /* ============================================================
    Stage: full-width iframe + horizontal related-resources rail above
+   The wrap owns the height; the iframe absolute-fills it.
+   (Do NOT use `height: auto` on the iframe — cross-origin iframes
+   cannot size to their content and collapse to ~150px, cropping the
+   report. That was the regression in commit 7fb0cb6 / 84ddf40.)
    ============================================================ */
 .demo-stage-grid {
   display: block;
@@ -102,15 +106,16 @@
 .demo-stage-grid .demo-frame-wrap {
   position: relative;
   background: #0b0b0b;
-  border-radius: 12px;
+  border-radius: 0 0 12px 12px;
   overflow: hidden;
+  height: 78vh;
   min-height: 720px;
 }
 .demo-stage-grid .demo-frame-wrap iframe {
-  position: relative;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   border: 0;
 }
