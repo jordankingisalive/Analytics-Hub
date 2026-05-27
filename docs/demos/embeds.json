@@ -112,7 +112,7 @@
       "blurb": "Enablement and champion identification \u2014 surface who's ready to onboard next and who should be groomed as a Copilot champion in each org.",
       "repo": "https://github.com/microsoft/M365UsageAnalytics",
       "sourceKey": "Purview + Entra",
-      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=8edd9efb-64e6-415d-9c00-a4773aa6cf8b&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true",
+      "embedUrl": "https://msit.powerbi.com/reportEmbed?reportId=8edd9efb-64e6-415d-9c00-a4773aa6cf8b&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&actionBarEnabled=true&reportCopilotInEmbed=true&pageView=fitToWidth",
       "height": 720,
       "resources": [
         { "label": "README & setup guide", "url": "https://github.com/microsoft/M365UsageAnalytics#readme", "kind": "doc" },
