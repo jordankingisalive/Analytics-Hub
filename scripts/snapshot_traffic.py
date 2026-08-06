@@ -226,6 +226,30 @@ def fetch_clarity(token: str, by_url: bool = False) -> dict | None:
 # ---------------------------------------------------------------- main
 
 
+def _clarity_total_sessions(aggregate_snapshot: list | None) -> int:
+    """Best-effort read of total real sessions from an aggregate Clarity
+    snapshot (the list of metric groups stored under site["snapshots"]).
+
+    Reads the "Traffic" metric's totalSessionCount. Returns 0 when the
+    snapshot is missing, malformed, or reports no sessions. Bot sessions
+    are ignored — a day with only bot traffic still has no real per-URL
+    pages worth alerting on.
+    """
+    if not isinstance(aggregate_snapshot, list):
+        return 0
+    for metric_group in aggregate_snapshot:
+        if not isinstance(metric_group, dict):
+            continue
+        if metric_group.get("metricName") != "Traffic":
+            continue
+        for row in (metric_group.get("information") or []):
+            try:
+                return int(row.get("totalSessionCount") or 0)
+            except (TypeError, ValueError):
+                return 0
+    return 0
+
+
 def main() -> int:
     now = datetime.now(timezone.utc)
     today_key = now.strftime("%Y-%m-%d")
@@ -391,6 +415,11 @@ def main() -> int:
     # a silent failure (empty payload, dim rename, token scope regression).
     # Only checks sites where we ran a Clarity call this run — sites
     # skipped because the token env var was unset are not evaluated.
+    #
+    # Exception: if the same-day AGGREGATE snapshot reports zero real
+    # sessions, then zero per-URL rows is legitimate (a genuinely quiet
+    # traffic day), not a degenerate payload — so we skip the canary.
+    # Otherwise low-traffic sites would false-fail the workflow nightly.
     for site_label in CLARITY_SITES:
         site_data = history["sites"].get(site_label) or {}
         by_url_map = site_data.get("snapshotsByUrl") or {}
@@ -399,6 +428,14 @@ def main() -> int:
             # No per-URL call ran (token missing, or by-url fetch failed).
             # The Clarity token failure will already have been printed as
             # a warning above; we don't double-count as a hard error here.
+            continue
+        if _clarity_total_sessions(site_data.get("snapshots", {}).get(today_key)) == 0:
+            # No traffic today — an empty per-URL breakdown is expected.
+            print(
+                f"  - clarity[{site_label}]: 0 sessions today — skipping "
+                f"per-URL canary (quiet day, not a regression)",
+                file=sys.stderr,
+            )
             continue
         unique_urls: set[str] = set()
         for metric_group in today_entry:
