@@ -68,11 +68,26 @@ MAX_SYNC_AGE_HOURS: int = 36
 # trail against silent revisions from the API on already-recorded days.
 IMMUTABILITY_WINDOW_DAYS: int = 3
 
-# Minimum URLs expected in the Clarity per-URL snapshot for a healthy site.
-# Below this we assume the URL dimension call returned an empty / degenerate
-# response (Clarity outage, token scope regression, dim rename, etc.) and
-# fail loud so the audit page never renders green-on-empty.
-MIN_URLS_PER_SNAPSHOT: int = 5
+# Minimum URLs expected in the Clarity per-URL snapshot for a healthy site,
+# checked ONLY on days the site had real sessions (see the zero-session skip
+# in Gate 3). Its job is to catch a degenerate/empty by-URL payload — a 200
+# response that returns no page rows (Clarity outage, token scope regression,
+# URL dimension rename) so the audit page never renders green-on-empty.
+#
+# This is per-site because sites differ in size: a 4-page personal homepage
+# is perfectly healthy with 4 URLs. The DEFAULT floor of 1 means "if there
+# was traffic, we must get at least one page back." Override per site below
+# when a larger site warrants a stricter floor.
+MIN_URLS_PER_SNAPSHOT_DEFAULT: int = 1
+MIN_URLS_PER_SNAPSHOT: dict[str, int] = {
+    # label -> minimum unique URLs required on a day with sessions.
+    # jordan-homepage has ~4 pages; analytics-hub is larger.
+    "analytics-hub": 3,
+}
+
+
+def _min_urls_for(site_label: str) -> int:
+    return MIN_URLS_PER_SNAPSHOT.get(site_label, MIN_URLS_PER_SNAPSHOT_DEFAULT)
 
 # Clarity Data Export API tokens are scoped per-project: the token alone
 # determines which project's data the call returns. We keep one entry per
@@ -411,7 +426,7 @@ def main() -> int:
             )
 
     # Gate 3: Clarity per-URL canary. When snapshotsByUrl[today] exists
-    # but has fewer than MIN_URLS_PER_SNAPSHOT unique URLs, treat that as
+    # but has fewer than the site's minimum unique URLs, treat that as
     # a silent failure (empty payload, dim rename, token scope regression).
     # Only checks sites where we ran a Clarity call this run — sites
     # skipped because the token env var was unset are not evaluated.
@@ -443,10 +458,11 @@ def main() -> int:
                 u = row.get("Url")
                 if u:
                     unique_urls.add(u)
-        if len(unique_urls) < MIN_URLS_PER_SNAPSHOT:
+        min_urls = _min_urls_for(site_label)
+        if len(unique_urls) < min_urls:
             hard_errors.append(
                 f"clarity[{site_label}].snapshotsByUrl[{today_key}]: only "
-                f"{len(unique_urls)} unique URL(s) — expected ≥ {MIN_URLS_PER_SNAPSHOT}. "
+                f"{len(unique_urls)} unique URL(s) — expected ≥ {min_urls}. "
                 f"Possible causes: Clarity token expired, URL dimension renamed, "
                 f"or a Clarity outage."
             )
